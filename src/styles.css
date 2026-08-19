@@ -150,5 +150,23 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
   }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+}
+
+@utility surface-imperial {
+  background-image: var(--gradient-imperial);
+  color: oklch(0.96 0.02 85);
 }
