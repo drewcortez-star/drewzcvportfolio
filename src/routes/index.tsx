@@ -131,18 +131,56 @@ function Index() {
         </p>
         <div className="mt-8 grid gap-6 text-muted-foreground md:grid-cols-3">
           <p>
-            Born to minor Corsican nobility, he entered French military school at nine and
-            commanded artillery at Toulon at twenty-four.
+            Born Napoleone Buonaparte to minor Corsican nobility, he entered French military school
+            at nine, mastered artillery mathematics, and commanded the guns at Toulon at
+            twenty-four.
           </p>
           <p>
             Between 1796 and 1809 he defeated every coalition Europe assembled against him,
-            redrawing the continent's borders and dissolving the Holy Roman Empire.
+            redrawing the continent's borders, dissolving the Holy Roman Empire, and placing
+            relatives on thrones from Spain to Naples.
           </p>
           <p>
-            Defeat in Russia and at Waterloo ended his rule, but his codes, schools and
-            institutions survived the restoration of the monarchy.
+            Defeat in Russia and at Waterloo ended his rule, but his codes, schools, roads, and
+            institutions survived the restoration of the monarchy and shaped modern Europe.
           </p>
         </div>
+      </section>
+
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+          <p className="text-eyebrow">Rise to power</p>
+          <h2 className="mt-3 text-3xl md:text-4xl">From Corsican cadet to Emperor</h2>
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <p className="leading-relaxed text-muted-foreground">
+              Napoleon’s ascent was breathtakingly fast. In 1793 he was an obscure artillery captain;
+              by 1799 he was First Consul of France; by 1804 he had crowned himself Emperor. His rise
+              owed as much to political timing as to battlefield genius — the French Revolution had
+              decapitated the old officer class, opening space for young men of talent.
+            </p>
+            <p className="leading-relaxed text-muted-foreground">
+              He understood the new mass politics of the era. He published bulletins, cultivated the
+              press, and promised stability to a nation exhausted by a decade of revolution and
+              war. To the French, he was not a usurper but a protector of the Revolution’s gains —
+              meritocracy, property rights, and administrative reform — wrapped in the authority of a
+              strong state.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">At a glance</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">Key facts</h2>
+        <dl className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {facts.map((f) => (
+            <div key={f.label} className="rounded-md border border-border bg-card p-6">
+              <dt className="text-eyebrow">{f.label}</dt>
+              <dd className="mt-2 font-display text-3xl text-primary">{f.value}</dd>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.detail}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
       <section id="work" className="border-y border-border bg-card">
@@ -163,10 +201,10 @@ function Index() {
 
       <section id="timeline" className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Timeline</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">A life in six dates</h2>
+        <h2 className="mt-3 text-3xl md:text-4xl">A life in dates</h2>
         <ol className="mt-10 border-l border-border">
           {timeline.map((t) => (
-            <li key={t.year} className="relative pb-9 pl-7 last:pb-0">
+            <li key={t.year + t.title} className="relative pb-9 pl-7 last:pb-0">
               <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-gold" />
               <p className="font-display text-xl text-primary">{t.year}</p>
               <h3 className="text-lg">{t.title}</h3>
