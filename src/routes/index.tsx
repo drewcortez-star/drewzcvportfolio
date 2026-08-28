@@ -100,15 +100,17 @@ function Index() {
       <nav className="surface-imperial">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <span className="font-display text-xl text-gold">The Napoleon Library</span>
-          <div className="flex gap-6 text-sm">
+          <div className="flex flex-wrap items-center gap-6 text-sm">
             <a href="#home" className="text-gold transition-opacity hover:opacity-80">Home</a>
             <a href="#life" className="text-gold/80 transition-opacity hover:text-gold">Life</a>
             <a href="#works" className="text-gold/80 transition-opacity hover:text-gold">Works</a>
             <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
+            <AccountNavLink />
           </div>
         </div>
       </nav>
+
 
       <header id="home" className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
