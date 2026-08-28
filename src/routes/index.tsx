@@ -4,16 +4,16 @@ import portrait from "@/assets/napoleon-portrait.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Home — Historical Figures" },
+      { title: "The Napoleon Library — Grade 11 ARIES Project" },
       {
         name: "description",
         content:
-          "A refined collection of historical content, rich Roman heritage, and interactive learning experiences.",
+          "A curated library of Napoleon Bonaparte's life, campaigns, reforms, and legacy.",
       },
-      { property: "og:title", content: "Home — Historical Figures" },
+      { property: "og:title", content: "The Napoleon Library" },
       {
         property: "og:description",
-        content: "Explore historical figures, campaigns, and interactive learning.",
+        content: "Explore the life, wars, laws, and lasting legacy of Napoleon Bonaparte.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -38,7 +38,7 @@ const timeline = [
   { year: "1812", title: "Russian Disaster", text: "The Grande Armée of 600,000 marches to Moscow and back; only an estimated 100,000 return." },
   { year: "1814", title: "First Abdication", text: "Allied armies invade France and force his abdication. He is exiled to the island of Elba." },
   { year: "1815", title: "The Hundred Days", text: "Escapes Elba, returns to France, and briefly restores his empire before defeat at Waterloo." },
-  { year: "1815", title: "Exile to Saint Helena", text: "Britain banishes him to the remote Atlantic island of Saint Helena, where he lives until his death in 1821." },
+  { year: "1821", title: "Death on Saint Helena", text: "After six years in British captivity on the remote Atlantic island, he dies on 5 May 1821, most likely from stomach cancer." },
 ];
 
 const works = [
@@ -81,16 +81,31 @@ const facts = [
   { label: "Empire peak", value: "130M people", detail: "At its height in 1812, the French Empire and its satellites ruled roughly 130 million people." },
 ];
 
+const quotes = [
+  { text: "Impossible is a word to be found only in the dictionary of fools.", context: "Attributed to Napoleon, reflecting his belief in willpower and action." },
+  { text: "A leader is a dealer in hope.", context: "Napoleon understood that morale, not just logistics, won campaigns." },
+  { text: "History is the version of past events that people have decided to agree upon.", context: "His sharp awareness of how reputation is shaped after power fades." },
+];
+
+const innovations = [
+  { title: "Self-sufficient corps", text: "Each corps contained infantry, cavalry, artillery, and engineers, allowing independent maneuver and rapid concentration." },
+  { title: "Living off the land", text: "Armies foraged locally instead of relying solely on slow supply wagons, dramatically increasing marching speed." },
+  { title: "Massed artillery", text: "He concentrated batteries to shatter enemy lines before infantry or cavalry assaults, a tactic still studied today." },
+  { title: "Citizen armies", text: "He drew on France's levée en masse to field large, motivated forces led by officers promoted for merit." },
+];
+
 function Index() {
   return (
     <main className="min-h-screen bg-background">
       <nav className="surface-imperial">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <span className="font-display text-xl text-gold">Historical Figures</span>
+          <span className="font-display text-xl text-gold">The Napoleon Library</span>
           <div className="flex gap-6 text-sm">
             <a href="#home" className="text-gold transition-opacity hover:opacity-80">Home</a>
+            <a href="#life" className="text-gold/80 transition-opacity hover:text-gold">Life</a>
+            <a href="#works" className="text-gold/80 transition-opacity hover:text-gold">Works</a>
+            <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
-            <a href="#contact" className="text-gold/80 transition-opacity hover:text-gold">Contact</a>
           </div>
         </div>
       </nav>
@@ -99,54 +114,32 @@ function Index() {
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
           <p className="text-eyebrow text-gold">Grade 11 — ARIES Project</p>
           <h1 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
-            Welcome To My First Website
+            The Napoleon Library
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed opacity-85">
-            Explore a refined collection of historical content, rich Roman heritage, and interactive
-            learning experiences in a polished, modern layout.
+            A focused collection of Napoleon Bonaparte's life, campaigns, reforms, and legacy —
+            built like a digital reference shelf for one of history's most influential figures.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="#napoleon"
+              href="#life"
               className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
             >
-              Learn About Napoleon
+              Explore His Life
             </a>
             <a
-              href="#quiz"
+              href="#works"
               className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
             >
-              Take the Quiz
+              See His Works
             </a>
           </div>
         </div>
       </header>
 
-      <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-        <article id="napoleon" className="mx-auto max-w-3xl rounded-md border border-border bg-card p-7 text-center">
-          <p className="text-eyebrow">French Figure</p>
-          <h2 className="mt-3 font-display text-2xl">Napoleon Bonaparte</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Napoleon Bonaparte earned the moniker "Nightmare of Europe" because his rapid
-            conquests and military genius, seen in triumphs like Austerlitz, utterly upended the
-            continent's balance of power. For over a decade, his sweeping changes terrified
-            traditional monarchies, sparked the Napoleonic Wars, and redrew the map of Europe.
-          </p>
-        </article>
-
-        <div className="mt-10 text-center">
-          <a
-            href="#quiz"
-            className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Open the Quiz
-          </a>
-        </div>
-      </section>
-
-      <section className="border-y border-border bg-card">
+      <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-          <p className="text-eyebrow">More about Napoleon</p>
+          <p className="text-eyebrow">Profile</p>
           <h2 className="mt-3 text-3xl md:text-4xl">The Nightmare of Europe</h2>
           <div className="mt-8 grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start">
             <figure>
@@ -199,7 +192,7 @@ function Index() {
         </dl>
       </section>
 
-      <section id="work" className="border-y border-border bg-card">
+      <section id="works" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Selected works</p>
           <h2 className="mt-3 text-3xl md:text-4xl">What he built</h2>
@@ -209,6 +202,44 @@ function Index() {
                 <p className="text-eyebrow">{w.kind}</p>
                 <h3 className="mt-3 text-2xl">{w.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">Rise to power</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">From Corsican cadet to Emperor</h2>
+        <div className="mt-8 space-y-5 text-muted-foreground">
+          <p className="leading-relaxed">
+            Napoleon's ascent was astonishingly fast. In 1792 he was an obscure artillery captain
+            writing political pamphlets in Corsica. By 1796 he commanded the Army of Italy and won
+            victories at Lodi, Castiglione, Arcole, and Rivoli that forced Austria to sue for peace.
+          </p>
+          <p className="leading-relaxed">
+            His Egyptian expedition of 1798 was a strategic failure against Britain, but it burnished
+            his reputation as a romantic conqueror and returned him to France at the perfect moment:
+            the Directory was bankrupt and unpopular. On 9 November 1799 he joined the coup that
+            overthrew it, becoming First Consul — and then Consul for Life in 1802.
+          </p>
+          <p className="leading-relaxed">
+            In 1804 he converted the consulate into an empire, crowning himself Emperor to avoid
+            acknowledging any higher authority than the French people. For the next decade he would
+            be the dominant figure in European affairs.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+          <p className="text-eyebrow">Military innovations</p>
+          <h2 className="mt-3 text-3xl md:text-4xl">How he changed warfare</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {innovations.map((i) => (
+              <article key={i.title} className="rounded-md border border-border bg-background p-7">
+                <h3 className="text-xl">{i.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{i.text}</p>
               </article>
             ))}
           </div>
@@ -230,30 +261,56 @@ function Index() {
         </ol>
       </section>
 
-      <section id="quiz" className="surface-imperial">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center md:py-24">
-          <p className="text-eyebrow text-gold">Interactive</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">Test Your Knowledge</h2>
-          <p className="mx-auto mt-4 max-w-xl opacity-85">
-            Take the quiz to see how much you remember about Roman and French history.
-          </p>
-          <button
-            type="button"
-            className="mt-8 rounded-full bg-gold px-8 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
-          >
-            Open the Quiz
-          </button>
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+          <p className="text-eyebrow">Legacy</p>
+          <h2 className="mt-3 text-3xl md:text-4xl">Downfall and lasting impact</h2>
+          <div className="mt-8 space-y-5 text-muted-foreground">
+            <p className="leading-relaxed">
+              The invasion of Russia in 1812 destroyed the Grande Armée. After a fighting retreat
+              across Germany, Napoleon abdicated in 1814 and was exiled to Elba. His escape in 1815
+              and the brief Hundred Days ended at Waterloo, where a combined Anglo-Prussian army
+              defeated him once and for all.
+            </p>
+            <p className="leading-relaxed">
+              The Congress of Vienna redrew Europe to contain France, yet many of Napoleon's changes
+              proved irreversible. Belgium, the Netherlands, parts of Italy and Germany, and the
+              legal systems of dozens of countries still bear traces of his rule. The modern
+              centralized state, meritocratic bureaucracy, and civil-law tradition all owe something
+              to his ambition.
+            </p>
+            <p className="leading-relaxed">
+              Controversial, brilliant, and ruthless, Napoleon remains one of the most studied
+              individuals in history — a man who rose from obscurity to dominate an entire
+              continent, then lost it all in little more than a decade.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-        <p className="text-eyebrow">About</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">About this project</h2>
-        <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
-          This website was created as a Grade 11 ARIES project to explore important historical
-          figures and their impact on the modern world. It combines research, writing, and web
-          design into a single polished experience.
-        </p>
+      <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">In his own words</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">Notable quotes</h2>
+        <div className="mt-10 space-y-6">
+          {quotes.map((q, idx) => (
+            <blockquote key={idx} className="rounded-md border-l-4 border-gold bg-card p-6">
+              <p className="font-display text-xl italic">“{q.text}”</p>
+              <footer className="mt-3 text-sm text-muted-foreground">— {q.context}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="surface-imperial">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+          <p className="text-eyebrow text-gold">About</p>
+          <h2 className="mt-3 text-3xl md:text-4xl">About this library</h2>
+          <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
+            This website was created as a Grade 11 ARIES project. It is designed as a single-subject
+            digital library dedicated entirely to Napoleon Bonaparte — his origins, his wars, his
+            laws, and the world he left behind.
+          </p>
+        </div>
       </section>
 
       <section id="contact" className="border-y border-border bg-card">
@@ -269,9 +326,9 @@ function Index() {
 
       <footer className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-12 text-sm opacity-80">
-          <p className="font-display text-xl text-gold">Historical Figures</p>
+          <p className="font-display text-xl text-gold">The Napoleon Library</p>
           <p className="mt-2">Grade 11 — ARIES Project</p>
-          <p className="mt-1">© 2026 Historical Figures. All rights reserved.</p>
+          <p className="mt-1">© 2026 The Napoleon Library. All rights reserved.</p>
         </div>
       </footer>
     </main>
