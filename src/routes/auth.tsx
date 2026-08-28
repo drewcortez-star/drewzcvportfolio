@@ -37,10 +37,13 @@ function AuthPage() {
   const [notice, setNotice] = useState<string | null>(null);
 
   useEffect(() => {
+    const remembered = window.localStorage.getItem("napoleon-library-email");
+    if (remembered) setEmail(remembered);
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/account", replace: true });
     });
   }, [navigate]);
+
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -62,6 +65,7 @@ function AuthPage() {
 
     setLoading(true);
     try {
+      window.localStorage.setItem("napoleon-library-email", email.trim());
       if (mode === "signup") {
         const { data, error: signUpError } = await supabase.auth.signUp({
           email: email.trim(),
@@ -73,6 +77,9 @@ function AuthPage() {
         });
         if (signUpError) throw signUpError;
         if (data.session) {
+          await supabase
+            .from("profiles")
+            .upsert({ id: data.session.user.id, full_name: name.trim() });
           navigate({ to: "/account", replace: true });
         } else {
           setNotice(
@@ -87,6 +94,7 @@ function AuthPage() {
         if (signInError) throw signInError;
         navigate({ to: "/account", replace: true });
       }
+
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
