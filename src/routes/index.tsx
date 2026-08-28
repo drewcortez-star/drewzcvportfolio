@@ -107,10 +107,10 @@ function Index() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="#caesar"
+              href="#napoleon"
               className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
             >
-              Learn About the Colosseum
+              Learn About Napoleon
             </a>
             <a
               href="#quiz"
