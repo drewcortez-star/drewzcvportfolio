@@ -37,10 +37,13 @@ function AuthPage() {
   const [notice, setNotice] = useState<string | null>(null);
 
   useEffect(() => {
+    const remembered = window.localStorage.getItem("napoleon-library-email");
+    if (remembered) setEmail(remembered);
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate({ to: "/account", replace: true });
     });
   }, [navigate]);
+
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
