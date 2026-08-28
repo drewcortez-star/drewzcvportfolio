@@ -5,13 +5,35 @@ import portrait from "@/assets/napoleon-portrait.jpg";
 
 function AccountNavLink() {
   const [signedIn, setSignedIn] = useState(false);
+  const [displayName, setDisplayName] = useState<string>("");
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+    let active = true;
+
+    async function load(session: { user: { id: string; email?: string } } | null) {
+      if (!active) return;
       setSignedIn(!!session);
+      if (!session) {
+        setDisplayName("");
+        return;
+      }
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name")
+        .eq("id", session.user.id)
+        .maybeSingle();
+      if (!active) return;
+      setDisplayName(profile?.full_name?.trim() || session.user.email || "");
+    }
+
+    supabase.auth.getSession().then(({ data }) => load(data.session));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      load(session);
     });
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      active = false;
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   return (
@@ -19,10 +41,11 @@ function AccountNavLink() {
       to={signedIn ? "/account" : "/auth"}
       className="rounded-full border border-gold/50 px-4 py-2 text-gold transition-colors hover:bg-gold hover:text-ink"
     >
-      {signedIn ? "My Profile" : "Sign in"}
+      {signedIn ? displayName || "My Profile" : "Sign in"}
     </Link>
   );
 }
+
 
 
 export const Route = createFileRoute("/")({
