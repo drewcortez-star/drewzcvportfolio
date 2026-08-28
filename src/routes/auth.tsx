@@ -26,6 +26,34 @@ export const Route = createFileRoute("/auth")({
 
 type Mode = "login" | "signup";
 
+const MAX_ATTEMPTS = 6;
+const LOCKOUT_MS = 5 * 60 * 1000;
+
+type AttemptRecord = { count: number; lockedUntil: number };
+
+function attemptKey(email: string) {
+  return `napoleon-login-attempts:${email.trim().toLowerCase()}`;
+}
+
+function readAttempts(email: string): AttemptRecord {
+  try {
+    const raw = window.localStorage.getItem(attemptKey(email));
+    if (!raw) return { count: 0, lockedUntil: 0 };
+    const parsed = JSON.parse(raw) as AttemptRecord;
+    return { count: parsed.count ?? 0, lockedUntil: parsed.lockedUntil ?? 0 };
+  } catch {
+    return { count: 0, lockedUntil: 0 };
+  }
+}
+
+function writeAttempts(email: string, record: AttemptRecord) {
+  window.localStorage.setItem(attemptKey(email), JSON.stringify(record));
+}
+
+function clearAttempts(email: string) {
+  window.localStorage.removeItem(attemptKey(email));
+}
+
 function AuthPage() {
   const navigate = useNavigate();
   const [mode, setMode] = useState<Mode>("login");
@@ -63,6 +91,17 @@ function AuthPage() {
       return;
     }
 
+    if (mode === "login") {
+      const record = readAttempts(email);
+      if (record.lockedUntil > Date.now()) {
+        const minutes = Math.ceil((record.lockedUntil - Date.now()) / 60000);
+        setError(
+          `Too many failed attempts. Please wait about ${minutes} minute${minutes === 1 ? "" : "s"} before trying again.`,
+        );
+        return;
+      }
+    }
+
     setLoading(true);
     try {
       window.localStorage.setItem("napoleon-library-email", email.trim());
@@ -91,9 +130,28 @@ function AuthPage() {
           email: email.trim(),
           password,
         });
-        if (signInError) throw signInError;
+        if (signInError) {
+          const prev = readAttempts(email);
+          const count = prev.count + 1;
+          if (count >= MAX_ATTEMPTS) {
+            writeAttempts(email, { count, lockedUntil: Date.now() + LOCKOUT_MS });
+            setError(
+              "Too many failed attempts. Sign-in is paused for 5 minutes for your security.",
+            );
+          } else {
+            writeAttempts(email, { count, lockedUntil: 0 });
+            const left = MAX_ATTEMPTS - count;
+            setError(
+              `${signInError.message} ${left} attempt${left === 1 ? "" : "s"} left before a short lockout.`,
+            );
+          }
+          setLoading(false);
+          return;
+        }
+        clearAttempts(email);
         navigate({ to: "/account", replace: true });
       }
+
 
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
