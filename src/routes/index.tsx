@@ -1,5 +1,29 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import portrait from "@/assets/napoleon-portrait.jpg";
+
+function AccountNavLink() {
+  const [signedIn, setSignedIn] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => setSignedIn(!!data.session));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSignedIn(!!session);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
+
+  return (
+    <Link
+      to={signedIn ? "/account" : "/auth"}
+      className="rounded-full border border-gold/50 px-4 py-2 text-gold transition-colors hover:bg-gold hover:text-ink"
+    >
+      {signedIn ? "My Profile" : "Sign in"}
+    </Link>
+  );
+}
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
