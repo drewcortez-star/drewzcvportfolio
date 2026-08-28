@@ -107,10 +107,10 @@ function Index() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href="#caesar"
+              href="#napoleon"
               className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
             >
-              Learn About the Colosseum
+              Learn About Napoleon
             </a>
             <a
               href="#quiz"
@@ -123,29 +123,16 @@ function Index() {
       </header>
 
       <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-        <div className="grid gap-8 md:grid-cols-2">
-          <article id="caesar" className="rounded-md border border-border bg-card p-7">
-            <p className="text-eyebrow">Roman Figure</p>
-            <h2 className="mt-3 font-display text-2xl">Julius Caesar</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Julius Caesar’s leadership style was defined by charismatic authority, calculated
-              risk-taking, and hands-on participation. He combined military genius with populist
-              politics, empowering his troops through deep personal connection while centralizing
-              power to enact sweeping reforms for the common Roman citizen.
-            </p>
-          </article>
-
-          <article id="napoleon" className="rounded-md border border-border bg-card p-7">
-            <p className="text-eyebrow">French Figure</p>
-            <h2 className="mt-3 font-display text-2xl">Napoleon Bonaparte</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Napoleon Bonaparte earned the moniker "Nightmare of Europe" because his rapid
-              conquests and military genius, seen in triumphs like Austerlitz, utterly upended the
-              continent's balance of power. For over a decade, his sweeping changes terrified
-              traditional monarchies, sparked the Napoleonic Wars, and redrew the map of Europe.
-            </p>
-          </article>
-        </div>
+        <article id="napoleon" className="mx-auto max-w-3xl rounded-md border border-border bg-card p-7 text-center">
+          <p className="text-eyebrow">French Figure</p>
+          <h2 className="mt-3 font-display text-2xl">Napoleon Bonaparte</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Napoleon Bonaparte earned the moniker "Nightmare of Europe" because his rapid
+            conquests and military genius, seen in triumphs like Austerlitz, utterly upended the
+            continent's balance of power. For over a decade, his sweeping changes terrified
+            traditional monarchies, sparked the Napoleonic Wars, and redrew the map of Europe.
+          </p>
+        </article>
 
         <div className="mt-10 text-center">
           <a
