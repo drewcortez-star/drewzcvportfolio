@@ -93,6 +93,37 @@ function ScrollToTop() {
 }
 
 
+function TikTokShopAd() {
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-8 md:pb-12">
+      <a
+        href="https://www.tiktok.com/shop"
+        target="_blank"
+        rel="noopener noreferrer sponsored"
+        aria-label="Sponsored: Shop on TikTok Shop (opens in new tab)"
+        className="group block overflow-hidden rounded-lg border border-gold/40 bg-card shadow-[var(--shadow-frame)] transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_0_30px_rgba(212,175,55,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <div className="flex flex-col items-center gap-4 p-5 sm:flex-row sm:justify-between sm:p-6">
+          <div className="flex items-start gap-4">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.53V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+              </svg>
+            </span>
+            <div>
+              <p className="text-eyebrow text-gold">Sponsored</p>
+              <h3 className="mt-1 font-display text-xl text-foreground">Discover picks on TikTok Shop</h3>
+              <p className="mt-1 max-w-xl text-sm text-muted-foreground">Explore trending products, deals, and creators — all in one place.</p>
+            </div>
+          </div>
+          <span className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform group-hover:scale-105">Shop now on TikTok</span>
+        </div>
+      </a>
+    </section>
+  );
+}
+
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -230,6 +261,8 @@ function Index() {
           </div>
         </div>
       </header>
+
+      <TikTokShopAd />
 
       <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
