@@ -101,22 +101,49 @@ function TikTokShopAd() {
         target="_blank"
         rel="noopener noreferrer sponsored"
         aria-label="Sponsored: Shop on TikTok Shop (opens in new tab)"
-        className="group block overflow-hidden rounded-lg border border-gold/40 bg-card shadow-[var(--shadow-frame)] transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_0_30px_rgba(212,175,55,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        className="group relative block overflow-hidden rounded-lg border border-gold/40 bg-card shadow-[var(--shadow-frame)] transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_0_30px_rgba(212,175,55,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
+        {/* Animated shimmer sweep across the card, like a GIF ad */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(115deg,transparent_30%,rgba(212,175,55,0.18)_48%,rgba(255,255,255,0.28)_50%,rgba(212,175,55,0.18)_52%,transparent_70%)] bg-[length:250%_100%] animate-[shimmer_2.8s_linear_infinite]"
+        />
+
         <div className="flex flex-col items-center gap-4 p-5 sm:flex-row sm:justify-between sm:p-6">
           <div className="flex items-start gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
+              <span aria-hidden="true" className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/25" />
+              <svg className="relative" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.53V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
               </svg>
             </span>
             <div>
-              <p className="text-eyebrow text-gold">Sponsored</p>
+              <p className="flex items-center gap-2 text-eyebrow text-gold">
+                Sponsored
+                <span className="inline-flex items-center gap-1 rounded-full bg-red-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-red-500">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+                  Live deals
+                </span>
+              </p>
               <h3 className="mt-1 font-display text-xl text-foreground">Discover picks on TikTok Shop</h3>
               <p className="mt-1 max-w-xl text-sm text-muted-foreground">Explore trending products, deals, and creators — all in one place.</p>
             </div>
           </div>
-          <span className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform group-hover:scale-105">Shop now on TikTok</span>
+          <span className="animate-[pulse-gold_2s_ease-in-out_infinite] rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform group-hover:scale-105">Shop now on TikTok</span>
+        </div>
+
+        {/* Marquee ticker at the bottom, like a GIF loop */}
+        <div aria-hidden="true" className="relative overflow-hidden border-t border-gold/25 bg-gold/5 py-1.5">
+          <div className="flex w-max animate-[marquee_14s_linear_infinite] gap-8 whitespace-nowrap text-[11px] font-medium uppercase tracking-widest text-gold/80">
+            {Array.from({ length: 2 }).map((_, copy) => (
+              <span key={copy} className="flex gap-8">
+                <span>⚡ Flash deals daily</span>
+                <span>🛍️ Free shipping on select items</span>
+                <span>🎁 New user discounts</span>
+                <span>🔥 Trending now on TikTok Shop</span>
+              </span>
+            ))}
+          </div>
         </div>
       </a>
     </section>
