@@ -425,6 +425,7 @@ function Index() {
           <p className="mt-1">© 2026 The Napoleon Library. All rights reserved.</p>
         </div>
       </footer>
+      <ScrollToTop />
     </main>
   );
 }
