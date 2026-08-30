@@ -256,7 +256,7 @@ function Index() {
         </div>
       </header>
 
-      <TikTokShopAd />
+      <ReadingProgress />
 
       <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
