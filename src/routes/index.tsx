@@ -211,6 +211,19 @@ const innovations = [
   { title: "Citizen armies", text: "He drew on France's levée en masse to field large, motivated forces led by officers promoted for merit." },
 ];
 
+const marshals = [
+  { name: "Michel Ney", epithet: "The Bravest of the Brave", text: "A cooper's son promoted on pure merit, Ney led the rearguard in the Russian retreat and was executed after the Bourbon restoration for rejoining Napoleon." },
+  { name: "Jean Lannes", epithet: "The Roland of the Grande Armée", text: "One of Napoleon's closest friends and a fearless attacker, Lannes fell at Essling in 1809 — the first marshal to die in battle." },
+  { name: "Joachim Murat", epithet: "The Dashing Cavalryman", text: "King of Naples and master of the massed cavalry charge, Murat led the famous 12,000-man charge at Eylau." },
+  { name: "Louis-Nicolas Davout", epithet: "The Iron Marshal", text: "Renowned for iron discipline, Davout won Auerstedt almost single-handedly in 1806 and never lost a major battle he commanded." },
+];
+
+const exileChapters = [
+  { title: "Elba, 1814–1815", text: "Granted sovereignty over the tiny island of Elba, Napoleon reformed its mines, roads, and army within months — then gambled everything on a return to France, landing with 600 men and marching on Paris as regiment after regiment joined him." },
+  { title: "The Hundred Days", text: "His restored empire lasted barely a hundred days. Defeated at Waterloo on 18 June 1815, he abdicated a second time and surrendered to the British, hoping for a quiet retirement in England. Instead, he was declared a prisoner of war." },
+  { title: "Saint Helena, 1815–1821", text: "Held at damp, windswept Longwood House in the South Atlantic, he dictated his memoirs, quarreled with his jailer Sir Hudson Lowe, and died on 5 May 1821. His remains returned to Paris in 1840, where they rest beneath the dome of Les Invalides." },
+];
+
 function Index() {
   return (
     <main className="min-h-screen bg-background">
