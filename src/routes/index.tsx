@@ -234,7 +234,9 @@ function Index() {
             <a href="#home" className="text-gold transition-opacity hover:opacity-80">Home</a>
             <a href="#life" className="text-gold/80 transition-opacity hover:text-gold">Life</a>
             <a href="#works" className="text-gold/80 transition-opacity hover:text-gold">Works</a>
+            <a href="#marshals" className="text-gold/80 transition-opacity hover:text-gold">Marshals</a>
             <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
+            <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
             <AccountNavLink />
           </div>
