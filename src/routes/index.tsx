@@ -93,60 +93,27 @@ function ScrollToTop() {
 }
 
 
-function TikTokShopAd() {
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      setProgress(total > 0 ? Math.min(100, (window.scrollY / total) * 100) : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section className="mx-auto max-w-5xl px-6 pb-8 md:pb-12">
-      <a
-        href="https://www.tiktok.com/shop"
-        target="_blank"
-        rel="noopener noreferrer sponsored"
-        aria-label="Sponsored: Shop on TikTok Shop (opens in new tab)"
-        className="group relative block overflow-hidden rounded-lg border border-gold/40 bg-card shadow-[var(--shadow-frame)] transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_0_30px_rgba(212,175,55,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-      >
-        {/* Animated shimmer sweep across the card, like a GIF ad */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(115deg,transparent_30%,rgba(212,175,55,0.18)_48%,rgba(255,255,255,0.28)_50%,rgba(212,175,55,0.18)_52%,transparent_70%)] bg-[length:250%_100%] animate-[shimmer_2.8s_linear_infinite]"
-        />
-
-        <div className="flex flex-col items-center gap-4 p-5 sm:flex-row sm:justify-between sm:p-6">
-          <div className="flex items-start gap-4">
-            <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gold/10 text-gold">
-              <span aria-hidden="true" className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/25" />
-              <svg className="relative" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.53V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-              </svg>
-            </span>
-            <div>
-              <p className="flex items-center gap-2 text-eyebrow text-gold">
-                Sponsored
-                <span className="inline-flex items-center gap-1 rounded-full bg-red-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-red-500">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
-                  Live deals
-                </span>
-              </p>
-              <h3 className="mt-1 font-display text-xl text-foreground">Discover picks on TikTok Shop</h3>
-              <p className="mt-1 max-w-xl text-sm text-muted-foreground">Explore trending products, deals, and creators — all in one place.</p>
-            </div>
-          </div>
-          <span className="animate-[pulse-gold_2s_ease-in-out_infinite] rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform group-hover:scale-105">Shop now on TikTok</span>
-        </div>
-
-        {/* Marquee ticker at the bottom, like a GIF loop */}
-        <div aria-hidden="true" className="relative overflow-hidden border-t border-gold/25 bg-gold/5 py-1.5">
-          <div className="flex w-max animate-[marquee_14s_linear_infinite] gap-8 whitespace-nowrap text-[11px] font-medium uppercase tracking-widest text-gold/80">
-            {Array.from({ length: 2 }).map((_, copy) => (
-              <span key={copy} className="flex gap-8">
-                <span>⚡ Flash deals daily</span>
-                <span>🛍️ Free shipping on select items</span>
-                <span>🎁 New user discounts</span>
-                <span>🔥 Trending now on TikTok Shop</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </a>
-    </section>
+    <div aria-hidden="true" className="fixed inset-x-0 top-0 z-[60] h-1 bg-transparent">
+      <div
+        className="h-full bg-gold transition-[width] duration-150 ease-out"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
   );
 }
 
@@ -244,6 +211,19 @@ const innovations = [
   { title: "Citizen armies", text: "He drew on France's levée en masse to field large, motivated forces led by officers promoted for merit." },
 ];
 
+const marshals = [
+  { name: "Michel Ney", epithet: "The Bravest of the Brave", text: "A cooper's son promoted on pure merit, Ney led the rearguard in the Russian retreat and was executed after the Bourbon restoration for rejoining Napoleon." },
+  { name: "Jean Lannes", epithet: "The Roland of the Grande Armée", text: "One of Napoleon's closest friends and a fearless attacker, Lannes fell at Essling in 1809 — the first marshal to die in battle." },
+  { name: "Joachim Murat", epithet: "The Dashing Cavalryman", text: "King of Naples and master of the massed cavalry charge, Murat led the famous 12,000-man charge at Eylau." },
+  { name: "Louis-Nicolas Davout", epithet: "The Iron Marshal", text: "Renowned for iron discipline, Davout won Auerstedt almost single-handedly in 1806 and never lost a major battle he commanded." },
+];
+
+const exileChapters = [
+  { title: "Elba, 1814–1815", text: "Granted sovereignty over the tiny island of Elba, Napoleon reformed its mines, roads, and army within months — then gambled everything on a return to France, landing with 600 men and marching on Paris as regiment after regiment joined him." },
+  { title: "The Hundred Days", text: "His restored empire lasted barely a hundred days. Defeated at Waterloo on 18 June 1815, he abdicated a second time and surrendered to the British, hoping for a quiet retirement in England. Instead, he was declared a prisoner of war." },
+  { title: "Saint Helena, 1815–1821", text: "Held at damp, windswept Longwood House in the South Atlantic, he dictated his memoirs, quarreled with his jailer Sir Hudson Lowe, and died on 5 May 1821. His remains returned to Paris in 1840, where they rest beneath the dome of Les Invalides." },
+];
+
 function Index() {
   return (
     <main className="min-h-screen bg-background">
@@ -254,7 +234,9 @@ function Index() {
             <a href="#home" className="text-gold transition-opacity hover:opacity-80">Home</a>
             <a href="#life" className="text-gold/80 transition-opacity hover:text-gold">Life</a>
             <a href="#works" className="text-gold/80 transition-opacity hover:text-gold">Works</a>
+            <a href="#marshals" className="text-gold/80 transition-opacity hover:text-gold">Marshals</a>
             <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
+            <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
             <AccountNavLink />
           </div>
@@ -289,7 +271,7 @@ function Index() {
         </div>
       </header>
 
-      <TikTokShopAd />
+      <ReadingProgress />
 
       <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
@@ -400,6 +382,24 @@ function Index() {
         </div>
       </section>
 
+      <section id="marshals" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">The commanders</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">The Marshals of the Empire</h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
+          In 1804 Napoleon created the Marshalate, elevating eighteen generals — soldiers'
+          soldiers promoted for talent, not birth. Four of the most famous:
+        </p>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {marshals.map((m) => (
+            <article key={m.name} className="rounded-md border border-border bg-card p-7">
+              <p className="text-eyebrow text-gold">{m.epithet}</p>
+              <h3 className="mt-3 text-2xl">{m.name}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="timeline" className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Timeline</p>
         <h2 className="mt-3 text-3xl md:text-4xl">A life in dates</h2>
@@ -439,6 +439,19 @@ function Index() {
               continent, then lost it all in little more than a decade.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section id="exile" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">The final chapters</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">Exile and Saint Helena</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {exileChapters.map((c) => (
+            <article key={c.title} className="rounded-md border border-border bg-card p-7">
+              <h3 className="text-xl">{c.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
