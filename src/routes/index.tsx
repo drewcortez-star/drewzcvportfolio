@@ -380,6 +380,24 @@ function Index() {
         </div>
       </section>
 
+      <section id="marshals" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">The commanders</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">The Marshals of the Empire</h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
+          In 1804 Napoleon created the Marshalate, elevating eighteen generals — soldiers'
+          soldiers promoted for talent, not birth. Four of the most famous:
+        </p>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {marshals.map((m) => (
+            <article key={m.name} className="rounded-md border border-border bg-card p-7">
+              <p className="text-eyebrow text-gold">{m.epithet}</p>
+              <h3 className="mt-3 text-2xl">{m.name}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="timeline" className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Timeline</p>
         <h2 className="mt-3 text-3xl md:text-4xl">A life in dates</h2>
@@ -419,6 +437,19 @@ function Index() {
               continent, then lost it all in little more than a decade.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section id="exile" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">The final chapters</p>
+        <h2 className="mt-3 text-3xl md:text-4xl">Exile and Saint Helena</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {exileChapters.map((c) => (
+            <article key={c.title} className="rounded-md border border-border bg-card p-7">
+              <h3 className="text-xl">{c.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
