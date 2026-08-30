@@ -174,125 +174,173 @@ function AuthPage() {
         </div>
       </div>
 
-      <div className="flex flex-1 items-center justify-center px-6 py-14">
-        <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-frame">
-          <p className="text-eyebrow text-center opacity-70">Reader Account</p>
-          <h1 className="mt-3 text-center font-display text-4xl leading-tight">
-            {mode === "login" ? "Welcome back" : "Create your account"}
-          </h1>
-          <p className="mt-3 text-center text-sm leading-relaxed opacity-70">
-            {mode === "login"
-              ? "Sign in with your Gmail and password to reach your profile."
-              : "Enter your name, Gmail and a password to join the library."}
-          </p>
+      <div className="flex flex-1 items-start justify-center px-6 py-14 lg:items-center">
+        <div className="grid w-full max-w-5xl gap-10 lg:grid-cols-[1fr_1.15fr]">
+          <div className="order-2 lg:order-1">
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-frame lg:sticky lg:top-10">
+              <p className="text-eyebrow opacity-70">Why create an account?</p>
+              <h2 className="mt-3 font-display text-3xl leading-tight">
+                Your personal key to the library
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed opacity-70">
+                A free reader account unlocks the full Napoleon Library experience and keeps your
+                progress safe across visits.
+              </p>
 
-          <div className="mt-6 grid grid-cols-2 gap-1 rounded-full border border-border p-1">
-            {(["login", "signup"] as Mode[]).map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => {
-                  setMode(m);
-                  setError(null);
-                  setNotice(null);
-                }}
-                className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                  mode === m ? "bg-gold text-ink" : "opacity-70 hover:opacity-100"
-                }`}
-              >
-                {m === "login" ? "Log in" : "Sign up"}
-              </button>
-            ))}
+              <ul className="mt-8 space-y-5">
+                {[
+                  {
+                    title: "Unlock exclusive rooms",
+                    text: "Read member-only deep dives like the Greatest Wars collection, covering Austerlitz, Jena, Wagram, and Waterloo.",
+                  },
+                  {
+                    title: "Save your place",
+                    text: "Your reading progress and unlocked sections are tied to your account, so nothing is lost when you return.",
+                  },
+                  {
+                    title: "Build your reader profile",
+                    text: "Choose your display name and manage your membership from one simple profile page.",
+                  },
+                  {
+                    title: "Free for now",
+                    text: "The library is currently free to unlock. Create an account today and keep access as the collection grows.",
+                  },
+                ].map((benefit) => (
+                  <li key={benefit.title} className="flex gap-4">
+                    <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold text-ink text-xs font-bold">
+                      ✓
+                    </span>
+                    <div>
+                      <h3 className="font-medium">{benefit.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed opacity-70">{benefit.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-            {mode === "signup" && (
-              <div>
-                <label htmlFor="name" className="block text-sm opacity-80">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  value={name}
-                  maxLength={100}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Napoleon Bonaparte"
-                  className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
-                />
+          <div className="order-1 w-full max-w-md justify-self-center lg:order-2 lg:max-w-none lg:justify-self-start">
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-frame">
+              <p className="text-eyebrow text-center opacity-70">Reader Account</p>
+              <h1 className="mt-3 text-center font-display text-4xl leading-tight">
+                {mode === "login" ? "Welcome back" : "Create your account"}
+              </h1>
+              <p className="mt-3 text-center text-sm leading-relaxed opacity-70">
+                {mode === "login"
+                  ? "Sign in with your Gmail and password to reach your profile and unlocked rooms."
+                  : "Enter your name, Gmail and a password to join the library and unlock exclusive content."}
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-1 rounded-full border border-border p-1">
+                {(["login", "signup"] as Mode[]).map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => {
+                      setMode(m);
+                      setError(null);
+                      setNotice(null);
+                    }}
+                    className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                      mode === m ? "bg-gold text-ink" : "opacity-70 hover:opacity-100"
+                    }`}
+                  >
+                    {m === "login" ? "Log in" : "Sign up"}
+                  </button>
+                ))}
               </div>
-            )}
 
-            <div>
-              <label htmlFor="email" className="block text-sm opacity-80">
-                Gmail
-              </label>
-              <input
-                id="email"
-                type="email"
-                autoComplete="email"
-                value={email}
-                maxLength={255}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@gmail.com"
-                className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
-              />
-            </div>
+              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                {mode === "signup" && (
+                  <div>
+                    <label htmlFor="name" className="block text-sm opacity-80">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      value={name}
+                      maxLength={100}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Napoleon Bonaparte"
+                      className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                    />
+                  </div>
+                )}
 
-            <div>
-              <label htmlFor="password" className="block text-sm opacity-80">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                autoComplete={mode === "login" ? "current-password" : "new-password"}
-                value={password}
-                maxLength={72}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="At least 6 characters"
-                className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
-              />
-            </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm opacity-80">
+                    Gmail
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    maxLength={255}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@gmail.com"
+                    className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  />
+                </div>
 
-            {error && (
-              <p className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
-                {error}
+                <div>
+                  <label htmlFor="password" className="block text-sm opacity-80">
+                    Password
+                  </label>
+                  <input
+                    id="password"
+                    type="password"
+                    autoComplete={mode === "login" ? "current-password" : "new-password"}
+                    value={password}
+                    maxLength={72}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="At least 6 characters"
+                    className="mt-1 w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                  />
+                </div>
+
+                {error && (
+                  <p className="rounded-lg border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                    {error}
+                  </p>
+                )}
+                {notice && (
+                  <p className="rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 text-sm">
+                    {notice}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:opacity-60"
+                >
+                  {loading
+                    ? "Please wait…"
+                    : mode === "login"
+                      ? "Log in"
+                      : "Create account & unlock"}
+                </button>
+              </form>
+
+              <p className="mt-6 text-center text-sm opacity-70">
+                {mode === "login" ? "New to the library?" : "Already have an account?"}{" "}
+                <button
+                  type="button"
+                  className="text-gold underline-offset-4 hover:underline"
+                  onClick={() => {
+                    setMode(mode === "login" ? "signup" : "login");
+                    setError(null);
+                    setNotice(null);
+                  }}
+                >
+                  {mode === "login" ? "Create one" : "Log in"}
+                </button>
               </p>
-            )}
-            {notice && (
-              <p className="rounded-lg border border-gold/40 bg-gold/10 px-4 py-3 text-sm">
-                {notice}
-              </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:opacity-60"
-            >
-              {loading
-                ? "Please wait…"
-                : mode === "login"
-                  ? "Log in"
-                  : "Create account"}
-            </button>
-          </form>
-
-          <p className="mt-6 text-center text-sm opacity-70">
-            {mode === "login" ? "New to the library?" : "Already have an account?"}{" "}
-            <button
-              type="button"
-              className="text-gold underline-offset-4 hover:underline"
-              onClick={() => {
-                setMode(mode === "login" ? "signup" : "login");
-                setError(null);
-                setNotice(null);
-              }}
-            >
-              {mode === "login" ? "Create one" : "Log in"}
-            </button>
-          </p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
