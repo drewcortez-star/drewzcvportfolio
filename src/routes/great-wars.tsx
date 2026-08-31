@@ -154,7 +154,7 @@ function GreatWarsPage() {
 
       <section className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
-          <h2 className="text-2xl md:text-3xl">Ready to explore the rest of the library?</h2>
+          <h2 className="heading-section">Ready to explore the rest of the library?</h2>
           <Link
             to="/"
             className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"

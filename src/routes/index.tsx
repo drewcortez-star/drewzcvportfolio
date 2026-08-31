@@ -461,7 +461,7 @@ function Index() {
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {innovations.map((i) => (
               <article key={i.title} className="rounded-md border border-border bg-background p-7">
-                <h3 className="text-xl">{i.title}</h3>
+                <h3 className="heading-card">{i.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{i.text}</p>
               </article>
             ))}
@@ -495,7 +495,7 @@ function Index() {
             <li key={t.year + t.title} className="relative pb-9 pl-7 last:pb-0">
               <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-gold" />
               <p className="font-display text-xl text-primary">{t.year}</p>
-              <h3 className="text-lg">{t.title}</h3>
+              <h3 className="heading-card">{t.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{t.text}</p>
             </li>
           ))}
@@ -535,7 +535,7 @@ function Index() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {exileChapters.map((c) => (
             <article key={c.title} className="rounded-md border border-border bg-card p-7">
-              <h3 className="text-xl">{c.title}</h3>
+              <h3 className="heading-card">{c.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
             </article>
           ))}

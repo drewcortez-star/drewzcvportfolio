@@ -179,7 +179,7 @@ function AuthPage() {
           <div className="order-2 lg:order-1">
             <div className="rounded-2xl border border-border bg-card p-8 shadow-frame lg:sticky lg:top-10">
               <p className="text-eyebrow opacity-70">Why create an account?</p>
-              <h2 className="mt-3 font-display text-3xl leading-tight">
+              <h2 className="mt-3 font-display heading-section">
                 Your personal key to the library
               </h2>
               <p className="mt-4 text-sm leading-relaxed opacity-70">
