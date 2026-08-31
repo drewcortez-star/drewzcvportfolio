@@ -29,14 +29,14 @@ const battles = [
     year: "1805",
     title: "Battle of Austerlitz",
     subtitle: "The Battle of the Three Emperors",
-    text: "Napoleon's masterpiece. He deliberately weakened his right flank to lure the Austro-Russian army onto the Pratzen Heights, then split their center with a massive thrust. The Third Coalition collapsed in a single day.",
+    text: "Napoleon's masterpiece. He deliberately left his right flank weak to lure the Austro-Russian army down from the Pratzen Heights, then stormed the abandoned heights and split the Allied center. The Third Coalition collapsed in a single day.",
     outcome: "Decisive French victory; Austria exited the war and signed Pressburg.",
   },
   {
     year: "1806",
     title: "Battle of Jena-Auerstedt",
     subtitle: "The shattering of Prussia",
-    text: "On the same day, Napoleon routed the main Prussian army at Jena while Davout's single corps defeated the bulk of the Prussian forces at Auerstedt. The myth of Prussian invincibility was destroyed.",
+    text: "On the same day, Napoleon overwhelmed a smaller Prussian force at Jena while Davout's single corps defeated the main Prussian army at Auerstedt. The myth of Prussian invincibility was destroyed.",
     outcome: "Prussia collapsed; French forces entered Berlin within days.",
   },
   {
