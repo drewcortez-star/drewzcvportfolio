@@ -117,6 +117,90 @@ function ReadingProgress() {
   );
 }
 
+const UNLOCK_KEY = "napoleon-library-unlocked";
+
+function readUnlocked() {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage.getItem(UNLOCK_KEY) === "yes";
+  } catch {
+    return false;
+  }
+}
+
+function TopUpSection() {
+  const [unlocked, setUnlocked] = useState(false);
+  const [processing, setProcessing] = useState(false);
+
+  useEffect(() => {
+    setUnlocked(readUnlocked());
+  }, []);
+
+  function unlock() {
+    setProcessing(true);
+    // Simulated ₱0.00 top-up — no charge, instant confirmation.
+    window.setTimeout(() => {
+      try {
+        window.localStorage.setItem(UNLOCK_KEY, "yes");
+      } catch {
+        /* storage unavailable */
+      }
+      setProcessing(false);
+      setUnlocked(true);
+    }, 900);
+  }
+
+  return (
+    <section id="topup" className="border-y border-border bg-card">
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+        <div className="rounded-2xl border border-gold/40 bg-background p-8 shadow-frame md:p-10">
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-xl">
+              <p className="text-eyebrow text-gold">Member Top-Up</p>
+              <h2 className="mt-3 text-3xl md:text-4xl">Unlock the Exclusive Library</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Top up your reader account to open the exclusive room:
+                <em> Napoleon's Greatest Wars</em> — deep dives into Austerlitz,
+                Jena–Auerstedt, Wagram, the Russian campaign, Leipzig, and Waterloo,
+                content not found on the main page.
+              </p>
+              <p className="mt-4 font-display text-3xl text-primary">
+                ₱0.00
+                <span className="ml-3 align-middle text-sm font-normal text-gold">
+                  Free for now · Philippine Peso
+                </span>
+              </p>
+            </div>
+            <div className="flex flex-col items-start gap-3 md:items-end">
+              {unlocked ? (
+                <Link
+                  to="/great-wars"
+                  className="rounded-full bg-gold px-8 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+                >
+                  Enter the Exclusive Library →
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  onClick={unlock}
+                  disabled={processing}
+                  className="rounded-full bg-gold px-8 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:opacity-60"
+                >
+                  {processing ? "Processing ₱0.00…" : "Pay ₱0.00 — Unlock"}
+                </button>
+              )}
+              <p className="text-xs text-muted-foreground">
+                {unlocked
+                  ? "Unlocked — you can return to the exclusive room anytime."
+                  : "One-time top-up. Your access is saved on this device."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -237,6 +321,7 @@ function Index() {
             <a href="#marshals" className="text-gold/80 transition-opacity hover:text-gold">Marshals</a>
             <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
             <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
+            <a href="#topup" className="text-gold/80 transition-opacity hover:text-gold">Top Up</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
             <AccountNavLink />
           </div>
@@ -272,6 +357,8 @@ function Index() {
       </header>
 
       <ReadingProgress />
+
+      <TopUpSection />
 
       <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">

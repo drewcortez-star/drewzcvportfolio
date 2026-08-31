@@ -135,6 +135,20 @@ function AccountPage() {
                 Log out
               </button>
             </div>
+
+            <div className="mt-10 border-t border-border pt-8">
+              <p className="text-eyebrow opacity-70">Exclusive Library</p>
+              <p className="mt-3 text-sm opacity-80">
+                Unlock the exclusive room on the main page, then visit
+                <em> Napoleon's Greatest Wars</em> anytime.
+              </p>
+              <Link
+                to="/great-wars"
+                className="mt-4 inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
+              >
+                Visit Greatest Wars →
+              </Link>
+            </div>
           </div>
         )}
       </div>
