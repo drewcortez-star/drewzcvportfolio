@@ -108,7 +108,7 @@ function GreatWarsPage() {
       <header className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
           <p className="text-eyebrow text-gold">Member Exclusive</p>
-          <h1 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
+          <h1 className="mt-4 font-display heading-hero">
             Greatest Wars
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed opacity-85">
@@ -141,7 +141,7 @@ function GreatWarsPage() {
                 <span className="font-display text-2xl text-gold">{b.year}</span>
                 <span className="text-eyebrow opacity-60">#{idx + 1}</span>
               </div>
-              <h2 className="mt-3 text-3xl md:text-4xl">{b.title}</h2>
+              <h2 className="mt-3 heading-section">{b.title}</h2>
               <p className="mt-1 text-lg italic opacity-80">{b.subtitle}</p>
               <p className="mt-5 leading-relaxed text-muted-foreground">{b.text}</p>
               <p className="mt-4 rounded-md border border-gold/30 bg-gold/10 px-4 py-3 text-sm">
@@ -154,7 +154,7 @@ function GreatWarsPage() {
 
       <section className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
-          <h2 className="text-2xl md:text-3xl">Ready to explore the rest of the library?</h2>
+          <h2 className="heading-section">Ready to explore the rest of the library?</h2>
           <Link
             to="/"
             className="mt-6 inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"

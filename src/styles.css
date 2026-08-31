@@ -162,12 +162,37 @@
   font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 0.28em;
-  font-size: 0.7rem;
+  font-size: clamp(0.62rem, 0.55rem + 0.3vw, 0.7rem);
   color: var(--muted-foreground);
 }
 
 @utility surface-imperial {
   background-image: var(--gradient-imperial);
   color: oklch(0.96 0.02 85);
+}
+
+/*
+ * Fluid, professional heading scale.
+ * clamp(min, fluid, max) keeps headings proportionate on every viewport:
+ * small phones never overflow, large desktops never look oversized.
+ */
+@utility heading-hero {
+  font-size: clamp(2.5rem, 4vw + 1.4rem, 4.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+@utility heading-section {
+  font-size: clamp(1.75rem, 2.2vw + 1.1rem, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+@utility heading-card {
+  font-size: clamp(1.3rem, 1vw + 1rem, 1.625rem);
+  line-height: 1.15;
+  text-wrap: balance;
 }
 
