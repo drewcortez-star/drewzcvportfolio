@@ -157,7 +157,7 @@ function TopUpSection() {
           <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
               <p className="text-eyebrow text-gold">Member Top-Up</p>
-              <h2 className="mt-3 text-3xl md:text-4xl">Unlock the Exclusive Library</h2>
+              <h2 className="mt-3 heading-section">Unlock the Exclusive Library</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 Top up your reader account to open the exclusive room:
                 <em> Napoleon's Greatest Wars</em> — deep dives into Austerlitz,
@@ -332,7 +332,7 @@ function Index() {
       <header id="home" className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
           <p className="text-eyebrow text-gold">Grade 11 — ARIES Project</p>
-          <h1 className="mt-4 font-display text-5xl leading-[0.95] md:text-7xl">
+          <h1 className="mt-4 font-display heading-hero">
             The Napoleon Library
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed opacity-85">
@@ -363,7 +363,7 @@ function Index() {
       <section id="life" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Profile</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">The Nightmare of Europe</h2>
+          <h2 className="mt-3 heading-section">The Nightmare of Europe</h2>
           <div className="mt-8 grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-start">
             <figure>
               <img
@@ -403,7 +403,7 @@ function Index() {
 
       <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">At a glance</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">Key facts</h2>
+        <h2 className="mt-3 heading-section">Key facts</h2>
         <dl className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {facts.map((f) => (
             <div key={f.label} className="rounded-md border border-border bg-card p-6">
@@ -418,12 +418,12 @@ function Index() {
       <section id="works" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Selected works</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">What he built</h2>
+          <h2 className="mt-3 heading-section">What he built</h2>
           <div className="mt-10 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-2">
             {works.map((w) => (
               <article key={w.title} className="bg-card p-7">
                 <p className="text-eyebrow">{w.kind}</p>
-                <h3 className="mt-3 text-2xl">{w.title}</h3>
+                <h3 className="mt-3 heading-card">{w.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{w.text}</p>
               </article>
             ))}
@@ -433,7 +433,7 @@ function Index() {
 
       <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Rise to power</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">From Corsican cadet to Emperor</h2>
+        <h2 className="mt-3 heading-section">From Corsican cadet to Emperor</h2>
         <div className="mt-8 space-y-5 text-muted-foreground">
           <p className="leading-relaxed">
             Napoleon's ascent was astonishingly fast. In 1792 he was an obscure artillery captain
@@ -457,7 +457,7 @@ function Index() {
       <section className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Military innovations</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">How he changed warfare</h2>
+          <h2 className="mt-3 heading-section">How he changed warfare</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {innovations.map((i) => (
               <article key={i.title} className="rounded-md border border-border bg-background p-7">
@@ -471,7 +471,7 @@ function Index() {
 
       <section id="marshals" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">The commanders</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">The Marshals of the Empire</h2>
+        <h2 className="mt-3 heading-section">The Marshals of the Empire</h2>
         <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
           In 1804 Napoleon created the Marshalate, elevating eighteen generals — soldiers'
           soldiers promoted for talent, not birth. Four of the most famous:
@@ -480,7 +480,7 @@ function Index() {
           {marshals.map((m) => (
             <article key={m.name} className="rounded-md border border-border bg-card p-7">
               <p className="text-eyebrow text-gold">{m.epithet}</p>
-              <h3 className="mt-3 text-2xl">{m.name}</h3>
+              <h3 className="mt-3 heading-card">{m.name}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
             </article>
           ))}
@@ -489,7 +489,7 @@ function Index() {
 
       <section id="timeline" className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Timeline</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">A life in dates</h2>
+        <h2 className="mt-3 heading-section">A life in dates</h2>
         <ol className="mt-10 border-l border-border">
           {timeline.map((t) => (
             <li key={t.year + t.title} className="relative pb-9 pl-7 last:pb-0">
@@ -505,7 +505,7 @@ function Index() {
       <section className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Legacy</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">Downfall and lasting impact</h2>
+          <h2 className="mt-3 heading-section">Downfall and lasting impact</h2>
           <div className="mt-8 space-y-5 text-muted-foreground">
             <p className="leading-relaxed">
               The invasion of Russia in 1812 destroyed the Grande Armée. After a fighting retreat
@@ -531,7 +531,7 @@ function Index() {
 
       <section id="exile" className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">The final chapters</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">Exile and Saint Helena</h2>
+        <h2 className="mt-3 heading-section">Exile and Saint Helena</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {exileChapters.map((c) => (
             <article key={c.title} className="rounded-md border border-border bg-card p-7">
@@ -544,7 +544,7 @@ function Index() {
 
       <section className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">In his own words</p>
-        <h2 className="mt-3 text-3xl md:text-4xl">Notable quotes</h2>
+        <h2 className="mt-3 heading-section">Notable quotes</h2>
         <div className="mt-10 space-y-6">
           {quotes.map((q, idx) => (
             <blockquote key={idx} className="rounded-md border-l-4 border-gold bg-card p-6">
@@ -558,7 +558,7 @@ function Index() {
       <section id="about" className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow text-gold">About</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">About this library</h2>
+          <h2 className="mt-3 heading-section">About this library</h2>
           <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
             This website was created as a Grade 11 ARIES project. It is designed as a single-subject
             digital library dedicated entirely to Napoleon Bonaparte — his origins, his wars, his
@@ -570,7 +570,7 @@ function Index() {
       <section id="contact" className="border-y border-border bg-card">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow">Contact</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">Get in touch</h2>
+          <h2 className="mt-3 heading-section">Get in touch</h2>
           <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
             Have questions about the project or want to share feedback? Use your school email or
             classroom channel to reach out.

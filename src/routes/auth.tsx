@@ -223,7 +223,7 @@ function AuthPage() {
           <div className="order-1 w-full max-w-md justify-self-center lg:order-2 lg:max-w-none lg:justify-self-start">
             <div className="rounded-2xl border border-border bg-card p-8 shadow-frame">
               <p className="text-eyebrow text-center opacity-70">Reader Account</p>
-              <h1 className="mt-3 text-center font-display text-4xl leading-tight">
+              <h1 className="mt-3 text-center font-display heading-section leading-tight">
                 {mode === "login" ? "Welcome back" : "Create your account"}
               </h1>
               <p className="mt-3 text-center text-sm leading-relaxed opacity-70">

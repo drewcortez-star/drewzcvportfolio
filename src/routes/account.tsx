@@ -98,7 +98,7 @@ function AccountPage() {
         ) : (
           <div className="rounded-2xl border border-border bg-card p-8 shadow-frame">
             <p className="text-eyebrow opacity-70">Reader Profile</p>
-            <h1 className="mt-3 font-display text-4xl">{name || "Unnamed reader"}</h1>
+            <h1 className="mt-3 font-display heading-section">{name || "Unnamed reader"}</h1>
             <p className="mt-2 text-sm opacity-70">
               {email} · Member since {joined}
             </p>
