@@ -233,7 +233,7 @@ const timeline = [
   { year: "1798", title: "Egyptian Expedition", text: "Invades Egypt to strike at British trade with India. The campaign produces the Rosetta Stone discovery." },
   { year: "1799", title: "Coup of 18 Brumaire", text: "Overthrows the Directory and becomes First Consul of France — effectively ending the French Revolution’s political chaos." },
   { year: "1804", title: "Emperor of the French", text: "Crowns himself Emperor at Notre-Dame de Paris with Pope Pius VII looking on." },
-  { year: "1805", title: "Austerlitz", text: "His masterpiece: the Third Coalition shattered in a single day on the ice-covered Pratzen Heights." },
+  { year: "1805", title: "Austerlitz", text: "His masterpiece: the Austro-Russian army of the Third Coalition shattered in a single day on the Pratzen Heights." },
   { year: "1806", title: "Jena & Auerstedt", text: "Defeats Prussia in twin battles that break the myth of Prussian invincibility." },
   { year: "1807", title: "Treaty of Tilsit", text: "Meets Tsar Alexander I on a raft in the Niemen River; the two emperors divide Europe." },
   { year: "1812", title: "Russian Disaster", text: "The Grande Armée of 600,000 marches to Moscow and back; only an estimated 100,000 return." },
@@ -277,15 +277,15 @@ const works = [
 
 const facts = [
   { label: "Height", value: "~5 ft 6 in", detail: "Average for a Frenchman of his era; British propaganda later mocked him as tiny." },
-  { label: "Battles won", value: "60+", detail: "Fought more than 60 pitched battles and lost only seven." },
-  { label: "Code articles", value: "2,281", detail: "The original Civil Code contained 2,281 articles governing French law." },
-  { label: "Empire peak", value: "130M people", detail: "At its height in 1812, the French Empire and its satellites ruled roughly 130 million people." },
+  { label: "Battles won", value: "60+", detail: "Fought around 60 pitched battles across his career and lost only about seven." },
+  { label: "Code articles", value: "2,281", detail: "The original Civil Code of 1804 contained 2,281 articles governing French law." },
+  { label: "Empire peak", value: "1812", detail: "At its height, the French Empire and its satellite states dominated most of continental Europe." },
 ];
 
 const quotes = [
   { text: "Impossible is a word to be found only in the dictionary of fools.", context: "Attributed to Napoleon, reflecting his belief in willpower and action." },
-  { text: "A leader is a dealer in hope.", context: "Napoleon understood that morale, not just logistics, won campaigns." },
-  { text: "History is the version of past events that people have decided to agree upon.", context: "His sharp awareness of how reputation is shaped after power fades." },
+  { text: "A leader is a dealer in hope.", context: "Attributed to Napoleon — he understood that morale, not just logistics, won campaigns." },
+  { text: "History is the version of past events that people have decided to agree upon.", context: "Attributed to Napoleon, showing his awareness of how reputation is shaped after power fades." },
 ];
 
 const innovations = [
@@ -298,7 +298,7 @@ const innovations = [
 const marshals = [
   { name: "Michel Ney", epithet: "The Bravest of the Brave", text: "A cooper's son promoted on pure merit, Ney led the rearguard in the Russian retreat and was executed after the Bourbon restoration for rejoining Napoleon." },
   { name: "Jean Lannes", epithet: "The Roland of the Grande Armée", text: "One of Napoleon's closest friends and a fearless attacker, Lannes fell at Essling in 1809 — the first marshal to die in battle." },
-  { name: "Joachim Murat", epithet: "The Dashing Cavalryman", text: "King of Naples and master of the massed cavalry charge, Murat led the famous 12,000-man charge at Eylau." },
+  { name: "Joachim Murat", epithet: "The Dashing Cavalryman", text: "King of Naples and master of the massed cavalry charge, Murat led the famous charge of some 10,000 horsemen at Eylau in 1807." },
   { name: "Louis-Nicolas Davout", epithet: "The Iron Marshal", text: "Renowned for iron discipline, Davout won Auerstedt almost single-handedly in 1806 and never lost a major battle he commanded." },
 ];
 
