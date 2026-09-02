@@ -559,7 +559,7 @@ function Index() {
             </figure>
             <div className="space-y-6 text-muted-foreground">
               <p className="leading-relaxed">
-                Born Napoleone Buonaparte in Ajaccio, Corsica, in 1769, he rose from a minor
+                Napoleon Bonaparte was born in Ajaccio, Corsica, in 1769. He rose from a minor
                 noble family to become one of the most consequential figures in modern history. His
                 Corsican origins gave him an outsider’s hunger; his education in French military
                 schools gave him the tools to satisfy it.
@@ -654,7 +654,7 @@ function Index() {
         <h2 className="mt-3 heading-section">The Marshals of the Empire</h2>
         <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
           In 1804 Napoleon created the Marshalate, elevating eighteen generals — soldiers'
-          soldiers promoted for talent, not birth. Four of the most famous:
+          soldiers promoted for talent rather than birth. Four of the most famous follow:
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {marshals.map((m) => (
