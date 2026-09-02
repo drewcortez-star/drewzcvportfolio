@@ -308,7 +308,182 @@ const exileChapters = [
   { title: "Saint Helena, 1815–1821", text: "Held at damp, windswept Longwood House in the South Atlantic, he dictated his memoirs, quarreled with his jailer Sir Hudson Lowe, and died on 5 May 1821. His remains returned to Paris in 1840, where they rest beneath the dome of Les Invalides." },
 ];
 
+function ContactSection() {
+  const send = useServerFn(submitFeedback);
+  const [signedIn, setSignedIn] = useState<boolean | null>(null);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState<"suggestion" | "bug">("suggestion");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
+
+  useEffect(() => {
+    let active = true;
+
+    async function load(session: { user: { id: string; email?: string } } | null) {
+      if (!active) return;
+      setSignedIn(!!session);
+      setEmail(session?.user.email ?? "");
+      if (!session) return;
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name")
+        .eq("id", session.user.id)
+        .maybeSingle();
+      if (!active) return;
+      setName(profile?.full_name?.trim() || "");
+    }
+
+    supabase.auth.getSession().then(({ data }) => load(data.session));
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => load(session));
+    return () => {
+      active = false;
+      sub.subscription.unsubscribe();
+    };
+  }, []);
+
+  async function onSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    setStatus(null);
+    if (message.trim().length < 10) {
+      setStatus({ ok: false, text: "Please write at least 10 characters so the message is clear." });
+      return;
+    }
+    setSending(true);
+    try {
+      const result = await send({ data: { name: name.trim(), category, message: message.trim() } });
+      setMessage("");
+      setStatus({
+        ok: true,
+        text: result.emailed
+          ? "Sent. Your message reached the owner's inbox — any reply will arrive in your email."
+          : "Saved. Your message was recorded and the owner will see it shortly.",
+      });
+    } catch (error) {
+      setStatus({
+        ok: false,
+        text: error instanceof Error ? error.message : "Something went wrong. Please try again.",
+      });
+    } finally {
+      setSending(false);
+    }
+  }
+
+  return (
+    <section id="contact" className="border-y border-border bg-card">
+      <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
+        <p className="text-eyebrow">Contact</p>
+        <h2 className="mt-3 heading-section">Suggestions & bug reports</h2>
+        <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
+          Found something inaccurate, broken, or missing? Leave a note below. Messages are delivered
+          straight to the library owner's inbox, and any reply comes back to the email address on
+          your account.
+        </p>
+
+        {signedIn === false ? (
+          <div className="mt-8 rounded-2xl border border-border bg-background p-8">
+            <p className="text-sm opacity-85">
+              You need an account to post here — that's how the library knows which email to reply
+              to.
+            </p>
+            <Link
+              to="/auth"
+              className="mt-5 inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+            >
+              Sign in to leave a message
+            </Link>
+          </div>
+        ) : (
+          <form
+            onSubmit={onSubmit}
+            className="mt-8 space-y-5 rounded-2xl border border-border bg-background p-6 md:p-8"
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-2">
+                <label htmlFor="fbName" className="block text-sm opacity-80">
+                  Your name
+                </label>
+                <input
+                  id="fbName"
+                  value={name}
+                  maxLength={100}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="How should the owner address you?"
+                  className="w-full rounded-lg border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-gold"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="fbEmail" className="block text-sm opacity-80">
+                  Reply goes to
+                </label>
+                <input
+                  id="fbEmail"
+                  value={email}
+                  readOnly
+                  className="w-full cursor-not-allowed rounded-lg border border-border bg-card px-4 py-3 text-sm opacity-70 outline-none"
+                />
+              </div>
+            </div>
+
+            <fieldset className="space-y-2">
+              <legend className="text-sm opacity-80">Type of message</legend>
+              <div className="flex flex-wrap gap-3">
+                {(["suggestion", "bug"] as const).map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setCategory(value)}
+                    className={`rounded-full border px-5 py-2 text-sm transition-colors ${
+                      category === value
+                        ? "border-gold bg-gold text-ink"
+                        : "border-border hover:border-gold hover:text-gold"
+                    }`}
+                  >
+                    {value === "suggestion" ? "Suggestion" : "Bug to fix"}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <div className="space-y-2">
+              <label htmlFor="fbMessage" className="block text-sm opacity-80">
+                Your message
+              </label>
+              <textarea
+                id="fbMessage"
+                value={message}
+                rows={6}
+                maxLength={3000}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Describe your suggestion or the bug you found…"
+                className="w-full resize-y rounded-lg border border-border bg-card px-4 py-3 text-sm leading-relaxed outline-none transition-colors focus:border-gold"
+              />
+              <p className="text-xs opacity-60">{message.length}/3000</p>
+            </div>
+
+            {status && (
+              <p className={`text-sm ${status.ok ? "text-gold" : "text-destructive"}`}>
+                {status.text}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={sending || signedIn === null}
+              className="rounded-full bg-gold px-7 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:opacity-60"
+            >
+              {sending ? "Sending…" : "Send to the owner"}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function Index() {
+
   return (
     <main className="min-h-screen bg-background">
       <nav className="surface-imperial">
