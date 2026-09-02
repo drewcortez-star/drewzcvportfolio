@@ -501,6 +501,8 @@ function Index() {
             <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
             <a href="#topup" className="text-gold/80 transition-opacity hover:text-gold">Top Up</a>
             <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
+            <a href="#contact" className="text-gold/80 transition-opacity hover:text-gold">Contact</a>
+
             <AccountNavLink />
           </div>
         </div>
