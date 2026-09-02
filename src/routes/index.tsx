@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { submitFeedback } from "@/lib/feedback.functions";
 import portrait from "@/assets/napoleon-portrait.jpg";
+
 
 function AccountNavLink() {
   const [signedIn, setSignedIn] = useState(false);
