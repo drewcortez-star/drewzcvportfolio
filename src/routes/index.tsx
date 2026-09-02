@@ -567,16 +567,8 @@ function Index() {
         </div>
       </section>
 
-      <section id="contact" className="border-y border-border bg-card">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-          <p className="text-eyebrow">Contact</p>
-          <h2 className="mt-3 heading-section">Get in touch</h2>
-          <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
-            Have questions about the project or want to share feedback? Use your school email or
-            classroom channel to reach out.
-          </p>
-        </div>
-      </section>
+      <ContactSection />
+
 
       <footer className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-12 text-sm opacity-80">
