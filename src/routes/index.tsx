@@ -740,19 +740,34 @@ function Index() {
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
           <p className="text-eyebrow text-gold">About Me</p>
           <h2 className="mt-3 heading-section">Drew Lorenz Cortez</h2>
-          <p className="mt-2 text-sm font-medium text-gold/80">Grade 11 IT Student</p>
-          <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
-            I created <em>The Napoleon Library</em> as my Grade 11 ARIES project. I am interested
-            in technology, web development, and digital projects, and I built this site to bring
-            together those interests with a focused, professional look at one of history's most
-            influential figures.
+          <p className="mt-2 text-sm font-medium text-gold/80">
+            Grade 11 ASSH/IT – ARIES · Creator of The Napoleon Library
           </p>
-          <Link
-            to="/about"
-            className="mt-6 inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
-          >
-            More about the creator →
-          </Link>
+          <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
+            I am Drew Lorenz Cortez, a Grade 11 IT student passionate about technology, web
+            development, and digital projects. I created <em>The Napoleon Library</em> as my
+            Grade 11 ARIES project to combine my interest in building digital experiences with a
+            focused, professional look at one of history's most influential figures.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
+              to="/about"
+              className="inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
+            >
+              More about the creator →
+            </Link>
+            <a
+              href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              Facebook
+            </a>
+          </div>
         </div>
       </section>
 
