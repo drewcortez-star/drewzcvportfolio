@@ -26,20 +26,42 @@ export const Route = createFileRoute("/about")({
 const skills = [
   {
     title: "Front-end",
-    items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Tailwind CSS"],
   },
   {
     title: "Design",
-    items: ["UI/UX layout", "Typography", "Color systems", "Responsive design", "Figma", "Canva"],
+    items: ["Page layout", "Typography hierarchy", "Color palette", "Responsive design"],
   },
   {
     title: "Research & writing",
-    items: ["Historical research", "Fact-checking", "Source citation", "Content writing", "Editing"],
+    items: ["Historical research", "Fact-checking", "Source citation", "Content writing"],
   },
   {
-    title: "Workflow",
-    items: ["Git & GitHub", "Vite", "Supabase", "Vercel deployment", "Accessibility basics"],
+    title: "Tools & workflow",
+    items: ["Git & GitHub", "Vite", "Supabase Auth", "Vercel deployment"],
   },
+];
+
+const projectInfo = [
+  { label: "Project", value: "The Napoleon Library" },
+  { label: "My role", value: "Creator · Designer · Developer" },
+  { label: "Purpose", value: "Educational historical digital library" },
+  { label: "Type", value: "Grade 11 ARIES project" },
+];
+
+const contributions = [
+  "Researched, wrote, and fact-checked every section — biography, campaigns, marshals, timeline, exile, and quotes.",
+  "Designed the imperial-era look: dark ink background, gold accents, and a serif display face.",
+  "Built the multi-page site with React, TypeScript, TanStack Router, and Tailwind CSS.",
+  "Added reader accounts and the members-only Greatest Wars room using Supabase Auth.",
+  "Set up the feedback form and deployed the site on Vercel.",
+];
+
+const lessons = [
+  "Planning the content structure first makes navigation and layout much easier later.",
+  "Keeping a small palette and a consistent type hierarchy keeps long text readable.",
+  "Testing on a phone early catches responsive layout problems before they pile up.",
+  "Authentication and protected pages take careful planning to get right.",
 ];
 
 const journey = [
@@ -158,28 +180,31 @@ function AboutPage() {
       </div>
 
       <div className="mx-auto w-full max-w-3xl flex-1 px-6 py-14">
-        <p className="text-eyebrow opacity-70">Behind the Library</p>
-        <h1 className="mt-3 font-display heading-section">About Me</h1>
+        <p className="text-eyebrow text-gold">About Me</p>
+        <h1 className="mt-3 heading-section">Drew Lorenz Cortez</h1>
+        <p className="mt-2 text-sm font-medium text-gold/80">
+          Grade 11 ASSH/IT – ARIES · Creator of The Napoleon Library
+        </p>
 
-        <div className="mt-10 grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-frame sm:grid-cols-[220px_1fr]">
-          <figure>
+        <div className="mt-10 grid gap-8 rounded-md border border-border bg-card p-7 shadow-frame sm:grid-cols-[220px_1fr] md:p-8">
+          <figure className="mx-auto w-full max-w-[220px] sm:mx-0">
             <img
               src={drewPhoto.url}
               alt="Portrait of Drew Lorenz S. Cortez, developer of The Napoleon Library"
               width={220}
               height={293}
-              className="w-full rounded-xl border border-gold/40 object-cover shadow-frame"
+              className="w-full rounded-md border border-gold/40 object-cover shadow-frame"
             />
-            <figcaption className="mt-3 text-center text-xs opacity-70">
-              Drew Lorenz Cortez · Grade 11 IT Student
+            <figcaption className="mt-3 text-center text-xs text-muted-foreground">
+              Drew Lorenz Cortez · Grade 11 ASSH/IT – ARIES
             </figcaption>
           </figure>
 
           <div className="space-y-4 text-sm leading-relaxed opacity-90">
             <p>
               <span className="font-display text-lg text-gold">Drew Lorenz Cortez</span> is a
-              Grade 11 IT student and the creator, designer, and developer of{" "}
-              <em>The Napoleon Library</em>.
+              Grade 11 ASSH/IT student in section ARIES and the creator, designer, and developer
+              of <em>The Napoleon Library</em>.
             </p>
             <p>
               This website was created as my Grade 11 ARIES project and developed into a full
@@ -198,40 +223,129 @@ function AboutPage() {
               writing, or listening to music. My goal is a career in web and software development,
               building products that are as thoughtful as they are useful.
             </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                Facebook
+              </a>
+              <Link
+                to="/"
+                hash="contact"
+                className="rounded-full border border-gold/40 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-ink"
+              >
+                Contact me
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
-            { label: "Developer", value: "Drew Lorenz Cortez" },
-            { label: "Grade & Section", value: "Grade 11 IT Student — ARIES" },
-            { label: "Project", value: "The Napoleon Library" },
+            { label: "Name", value: "Drew Lorenz Cortez" },
+            { label: "Grade & Section", value: "Grade 11 ASSH/IT – ARIES" },
+            { label: "Featured project", value: "The Napoleon Library" },
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-border bg-card p-5 text-center"
+              className="rounded-md border border-border bg-card p-5 text-center"
             >
-              <p className="text-eyebrow opacity-70">{item.label}</p>
-              <p className="mt-2 font-display text-lg">{item.value}</p>
+              <p className="text-eyebrow text-muted-foreground">{item.label}</p>
+              <p className="mt-2 font-display text-lg text-balance">{item.value}</p>
             </div>
           ))}
         </div>
 
-        {/* Skills & tools */}
-        <section aria-labelledby="skills-heading" className="mt-20">
-          <p className="text-eyebrow opacity-70">What I work with</p>
-          <h2 id="skills-heading" className="mt-3 font-display heading-section">
-            Skills &amp; tools
+        {/* Featured project */}
+        <section aria-labelledby="project-heading" className="mt-20">
+          <p className="text-eyebrow text-gold">Featured project</p>
+          <h2 id="project-heading" className="mt-3 heading-section">
+            The Napoleon Library
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed opacity-80">
-            The skills I bring to a project — and the ones I used to build this one. I&apos;m
-            strongest where design meets code: turning an idea into a layout, then a layout into
-            a working, responsive site.
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            An educational digital library on the life, campaigns, and legacy of Napoleon
+            Bonaparte — researched, designed, and built by me.
+          </p>
+
+          <div className="mt-8 rounded-md border border-gold/40 bg-card p-7 shadow-frame">
+            <dl className="grid gap-5 sm:grid-cols-2">
+              {projectInfo.map((row) => (
+                <div key={row.label} className="border-l-2 border-gold/50 pl-4">
+                  <dt className="text-eyebrow text-muted-foreground">{row.label}</dt>
+                  <dd className="mt-1 font-display text-lg">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <div>
+                <h3 className="heading-card">What I contributed</h3>
+                <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
+                  {contributions.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="heading-card">What I learned</h3>
+                <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
+                  {lessons.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/"
+                className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+              >
+                View the live project
+              </Link>
+              <Link
+                to="/great-wars"
+                className="rounded-full border border-gold/40 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-ink"
+              >
+                See the exclusive room
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section aria-labelledby="skills-heading" className="mt-20">
+          <p className="text-eyebrow text-gold">What I work with</p>
+          <h2 id="skills-heading" className="mt-3 heading-section">
+            My Skills
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Every skill listed here was used to build The Napoleon Library — from researching and
+            writing the content to designing the layout and coding the site.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {skills.map((group) => (
-              <div key={group.title} className="rounded-xl border border-border bg-card p-6">
-                <p className="text-eyebrow text-gold">{group.title}</p>
+              <div key={group.title} className="rounded-md border border-border bg-card p-6">
+                <h3 className="heading-card">{group.title}</h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
@@ -249,11 +363,11 @@ function AboutPage() {
 
         {/* Journey timeline */}
         <section aria-labelledby="journey-heading" className="mt-20">
-          <p className="text-eyebrow opacity-70">My journey</p>
-          <h2 id="journey-heading" className="mt-3 font-display heading-section">
+          <p className="text-eyebrow text-gold">My journey</p>
+          <h2 id="journey-heading" className="mt-3 heading-section">
             From curious reader to web developer
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed opacity-80">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Napoleon has a timeline on the main page. This is mine — how a love of history turned
             into a love of building things for the web.
           </p>
@@ -262,8 +376,8 @@ function AboutPage() {
               <li key={step.title} className="relative pb-9 pl-7 last:pb-0">
                 <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-gold" />
                 <p className="font-display text-xl text-gold">{step.when}</p>
-                <h3 className="mt-1 font-display text-lg">{step.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed opacity-80">{step.text}</p>
+                <h3 className="mt-1 heading-card">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.text}</p>
               </li>
             ))}
           </ol>
@@ -271,26 +385,26 @@ function AboutPage() {
 
         {/* Case study */}
         <section aria-labelledby="case-heading" className="mt-20">
-          <p className="text-eyebrow opacity-70">Case study</p>
-          <h2 id="case-heading" className="mt-3 font-display heading-section">
+          <p className="text-eyebrow text-gold">Case study</p>
+          <h2 id="case-heading" className="mt-3 heading-section">
             How I built The Napoleon Library
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed opacity-80">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             A look behind the gilded pages: the goal, the process, the tools, and what I&apos;d do
             differently next time.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {caseStudy.map((block) => (
-              <div key={block.title} className="rounded-xl border border-border bg-card p-6">
-                <p className="text-eyebrow text-gold">{block.title}</p>
-                <p className="mt-3 text-sm leading-relaxed opacity-90">{block.text}</p>
+              <div key={block.title} className="rounded-md border border-border bg-card p-6">
+                <h3 className="heading-card">{block.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{block.text}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-6 rounded-xl border border-gold/40 bg-card p-6">
-            <p className="text-eyebrow text-gold">Tech stack</p>
+          <div className="mt-4 rounded-md border border-border bg-card p-6">
+            <h3 className="heading-card">Tech stack</h3>
             <ul className="mt-4 flex flex-wrap gap-2">
               {stack.map((item) => (
                 <li
@@ -301,54 +415,50 @@ function AboutPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                to="/"
-                className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-ink transition-opacity hover:opacity-90"
-              >
-                View the live project
-              </Link>
-              <Link
-                to="/great-wars"
-                className="rounded-full border border-gold/40 px-5 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-ink"
-              >
-                See the exclusive room
-              </Link>
-            </div>
           </div>
         </section>
 
         {/* Interests */}
         <section aria-labelledby="interests-heading" className="mt-20">
-          <p className="text-eyebrow opacity-70">Beyond the screen</p>
-          <h2 id="interests-heading" className="mt-3 font-display heading-section">
+          <p className="text-eyebrow text-gold">Beyond the screen</p>
+          <h2 id="interests-heading" className="mt-3 heading-section">
             What I&apos;m into
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {interests.map((item) => (
-              <div key={item.title} className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-display text-lg text-gold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed opacity-85">{item.text}</p>
+              <div key={item.title} className="rounded-md border border-border bg-card p-6">
+                <h3 className="heading-card">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Contact CTA */}
-        <section className="mt-20 rounded-2xl border border-gold/40 bg-card p-8 text-center shadow-frame">
-          <p className="text-eyebrow opacity-70">Get in touch</p>
-          <h2 className="mt-3 font-display heading-section">Let&apos;s build something</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed opacity-80">
+        <section className="mt-20 rounded-md border border-gold/40 bg-card p-7 text-center shadow-frame md:p-8">
+          <p className="text-eyebrow text-gold">Get in touch</p>
+          <h2 className="mt-3 heading-section">Let&apos;s build something</h2>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
             Feedback on the library, a question about how it was built, or an idea for a future
             project — every message reaches me directly.
           </p>
-          <Link
-            to="/"
-            hash="contact"
-            className="mt-6 inline-block rounded-full bg-gold px-6 py-2.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
-          >
-            Go to Contact
-          </Link>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/"
+              hash="contact"
+              className="rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+            >
+              Go to Contact
+            </Link>
+            <a
+              href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-gold/40 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-ink"
+            >
+              Message me on Facebook
+            </a>
+          </div>
         </section>
       </div>
 
