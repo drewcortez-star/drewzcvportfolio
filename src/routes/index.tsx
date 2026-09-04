@@ -500,7 +500,7 @@ function Index() {
             <a href="#timeline" className="text-gold/80 transition-opacity hover:text-gold">Timeline</a>
             <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
             <a href="#topup" className="text-gold/80 transition-opacity hover:text-gold">Top Up</a>
-            <a href="#about" className="text-gold/80 transition-opacity hover:text-gold">About</a>
+            <Link to="/about" className="text-gold/80 transition-opacity hover:text-gold">About</Link>
             <a href="#contact" className="text-gold/80 transition-opacity hover:text-gold">Contact</a>
 
             <AccountNavLink />
