@@ -15,7 +15,7 @@ The project was directed, organized, reviewed, and customized by **Drew Lorenz C
 
 ## Live Website
 
-**Live app:** https://drewzcvportfolio.lovable.app
+**Live app:** https://drewportfolio.lovable.app
 
 ## Developer
 
