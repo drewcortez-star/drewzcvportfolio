@@ -15,7 +15,7 @@ The project was directed, organized, reviewed, and customized by **Drew Lorenz C
 
 ## Live Website
 
-**Live app:** https://drewzcvportfolio-eight.vercel.app/
+**Live app:** https://drewzcvportfolio.lovable.app
 
 ## Developer
 
