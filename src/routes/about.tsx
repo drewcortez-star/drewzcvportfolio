@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import drewPhoto from "@/assets/drew-cortez.jpg.asset.json";
+import drewPhoto from "@/assets/drew-cortez.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -189,7 +189,7 @@ function AboutPage() {
         <div className="mt-10 grid gap-8 rounded-md border border-border bg-card p-7 shadow-frame sm:grid-cols-[220px_1fr] md:p-8">
           <figure className="mx-auto w-full max-w-[220px] sm:mx-0">
             <img
-              src={drewPhoto.url}
+              src={drewPhoto}
               alt="Portrait of Drew Lorenz S. Cortez, developer of The Napoleon Library"
               width={220}
               height={293}
