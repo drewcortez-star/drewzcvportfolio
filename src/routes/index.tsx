@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { submitFeedback } from "@/lib/feedback.functions";
 import portrait from "@/assets/napoleon-portrait.jpg";
+import { FACEBOOK_URL, LIVE_SITE_URL, RESUME_URL, SiteFooter } from "@/components/SubpageNav";
 
 
 function AccountNavLink() {
@@ -313,8 +314,18 @@ const exileChapters = [
 
 const projectInfo = [
   { label: "Project", value: "The Napoleon Library" },
-  { label: "Role", value: "Creator · Director · Designer" },
+  { label: "Role", value: "Creator · Director · Designer · Developer" },
   { label: "Purpose", value: "Educational historical digital library" },
+];
+
+const projectTech = [
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "TanStack Router",
+  "Supabase",
+  "Responsive Web Design",
+  "AI-assisted development tools",
 ];
 
 const contributions = [
@@ -395,27 +406,63 @@ function ContactSection() {
     <section id="contact" className="border-y border-border bg-card">
       <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
         <p className="text-eyebrow">Contact</p>
-        <h2 className="mt-3 heading-section">Suggestions & bug reports</h2>
+        <h2 className="mt-3 heading-section">Get in touch</h2>
         <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
-          Found something inaccurate, broken, or missing? Leave a note below. Messages are delivered
-          straight to my inbox — Drew Lorenz Cortez, creator of the library — and any reply comes
-          back to the email address on your account. You can also{" "}
+          Feedback on the library, a question about how it was built, a bug report, or an idea for a
+          future project — every message reaches me directly. I&apos;m Drew Lorenz Cortez, creator of
+          the library, and any reply comes back to the email address on your account.
+        </p>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <a
-            href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+            href={FACEBOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-foreground underline decoration-gold/60 underline-offset-4 transition-colors hover:decoration-gold"
+            className="group rounded-md border border-border bg-background p-5 transition-colors hover:border-gold"
           >
-            message me on Facebook
+            <p className="text-eyebrow">Message</p>
+            <p className="mt-2 font-display text-xl">Facebook</p>
+            <p className="mt-1 text-sm text-muted-foreground">Fastest way to reach me directly.</p>
+            <span className="mt-3 inline-block text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 group-hover:decoration-gold">
+              Open profile ↗
+            </span>
           </a>
-          .
+          <a
+            href={RESUME_URL}
+            download="Drew-Lorenz-Cortez-Resume.pdf"
+            className="group rounded-md border border-border bg-background p-5 transition-colors hover:border-gold"
+          >
+            <p className="text-eyebrow">Resume</p>
+            <p className="mt-2 font-display text-xl">Download PDF</p>
+            <p className="mt-1 text-sm text-muted-foreground">One-page summary of my skills and project.</p>
+            <span className="mt-3 inline-block text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 group-hover:decoration-gold">
+              Download resume
+            </span>
+          </a>
+          <Link
+            to="/about"
+            hash="case-study"
+            className="group rounded-md border border-border bg-background p-5 transition-colors hover:border-gold"
+          >
+            <p className="text-eyebrow">Work</p>
+            <p className="mt-2 font-display text-xl">Case study</p>
+            <p className="mt-1 text-sm text-muted-foreground">Goal, process, tools, and outcome of this project.</p>
+            <span className="mt-3 inline-block text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 group-hover:decoration-gold">
+              Read the case study →
+            </span>
+          </Link>
+        </div>
+
+        <h3 className="mt-12 heading-card">Send a message</h3>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Use the form for suggestions and bug reports. Messages are delivered straight to my inbox.
         </p>
 
         {signedIn === false ? (
-          <div className="mt-8 rounded-2xl border border-border bg-background p-8">
+          <div className="mt-6 rounded-2xl border border-border bg-background p-8">
             <p className="text-sm opacity-85">
-              You need an account to post here — that's how the library knows which email to reply
-              to.
+              You need a free reader account to post here — that&apos;s how the library knows which
+              email to reply to.
             </p>
             <Link
               to="/auth"
@@ -427,7 +474,7 @@ function ContactSection() {
         ) : (
           <form
             onSubmit={onSubmit}
-            className="mt-8 space-y-5 rounded-2xl border border-border bg-background p-6 md:p-8"
+            className="mt-6 space-y-5 rounded-2xl border border-border bg-background p-6 md:p-8"
           >
             <div className="grid gap-5 md:grid-cols-2">
               <div className="space-y-2">
@@ -528,7 +575,15 @@ function Index() {
             <a href="#exile" className="text-gold/80 transition-opacity hover:text-gold">Exile</a>
             <a href="#topup" className="text-gold/80 transition-opacity hover:text-gold">Top Up</a>
             <Link to="/about" className="text-gold/80 transition-opacity hover:text-gold">About</Link>
+            <Link to="/about" hash="case-study" className="text-gold/80 transition-opacity hover:text-gold">Case Study</Link>
             <a href="#contact" className="text-gold/80 transition-opacity hover:text-gold">Contact</a>
+            <a
+              href={RESUME_URL}
+              download="Drew-Lorenz-Cortez-Resume.pdf"
+              className="text-gold/80 transition-opacity hover:text-gold"
+            >
+              Resume
+            </a>
 
             <AccountNavLink />
           </div>
@@ -542,15 +597,20 @@ function Index() {
           <h1 className="mt-4 font-display heading-hero">
             The Napoleon Library
           </h1>
-          <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-medium tracking-wide text-gold">
-            <span className="whitespace-nowrap">Created by Drew Lorenz Cortez</span>
-            <span className="hidden opacity-60 sm:inline" aria-hidden="true">·</span>
-            <span className="whitespace-nowrap">Grade 11 ASSH/IT – ARIES</span>
+          <p className="mt-6 font-display text-2xl leading-snug text-balance md:text-3xl">
+            Created, designed, researched, and directed by{" "}
+            <span className="text-gold">Drew Lorenz Cortez</span>
           </p>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-85">
-            My featured Grade 11 ARIES project — a focused digital library of Napoleon Bonaparte&apos;s
-            life, campaigns, reforms, and legacy, built to explore history through technology and
-            web development.
+          <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-medium tracking-wide text-gold">
+            <span className="whitespace-nowrap">Grade 11 ASSH/IT – ARIES</span>
+            <span className="hidden opacity-60 sm:inline" aria-hidden="true">·</span>
+            <span className="whitespace-nowrap">IT student &amp; aspiring web developer</span>
+          </p>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-pretty opacity-85">
+            I combine historical research, visual design, and web development to create interactive
+            educational experiences. This library — my Grade 11 ARIES project — presents Napoleon
+            Bonaparte&apos;s life, campaigns, reforms, and legacy as an organized, accessible, and
+            responsive web experience.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -565,13 +625,30 @@ function Index() {
             >
               See His Works
             </a>
-            <a
-              href="#about-me"
+            <Link
+              to="/about"
+              hash="case-study"
               className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
             >
-              Meet the Creator
+              View Case Study
+            </Link>
+            <a
+              href={RESUME_URL}
+              download="Drew-Lorenz-Cortez-Resume.pdf"
+              className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
+            >
+              Download Resume (PDF)
             </a>
           </div>
+          <p className="mt-5 text-xs tracking-wide text-gold/70">
+            <a href="#about-me" className="underline decoration-gold/40 underline-offset-4 transition-colors hover:decoration-gold">
+              Meet the creator
+            </a>
+            <span className="mx-2 opacity-60" aria-hidden="true">·</span>
+            <a href="#contact" className="underline decoration-gold/40 underline-offset-4 transition-colors hover:decoration-gold">
+              Contact
+            </a>
+          </p>
         </div>
       </header>
 
@@ -782,17 +859,18 @@ function Index() {
             Grade 11 ASSH/IT – ARIES · Creator of The Napoleon Library
           </p>
           <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
-            I am Drew Lorenz Cortez, a Grade 11 IT student passionate about technology, web
-            development, and digital projects. I created and directed <em>The Napoleon Library</em>{" "}
-            as my Grade 11 ARIES project to combine my interest in building digital experiences with
-            a focused, professional look at one of history&apos;s most influential figures.
+            I am Drew Lorenz Cortez, a Grade 11 IT student and aspiring web developer. I combine
+            historical research, visual design, and web development to create interactive educational
+            experiences. I created and directed <em>The Napoleon Library</em> as my Grade 11 ARIES
+            project to bring a focused, professional look at one of history&apos;s most influential
+            figures to the web.
           </p>
           <p className="mt-4 max-w-3xl leading-relaxed opacity-90">
             The website was developed with the assistance of AI-powered web development tools, which
             helped generate and modify parts of the code. I directed the project&apos;s design,
             content, research, structure, and overall development.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               to="/about"
               className="inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
@@ -800,7 +878,14 @@ function Index() {
               More about the creator →
             </Link>
             <a
-              href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+              href={RESUME_URL}
+              download="Drew-Lorenz-Cortez-Resume.pdf"
+              className="inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
+            >
+              Download Resume (PDF)
+            </a>
+            <a
+              href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
@@ -813,8 +898,26 @@ function Index() {
           </div>
 
           <div className="mt-12 rounded-2xl border border-gold/40 bg-ink/40 p-7 md:p-8">
-            <p className="text-eyebrow text-gold">Featured project</p>
-            <dl className="mt-5 grid gap-5 sm:grid-cols-3">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-eyebrow text-gold">Featured project · Case study</p>
+                <h3 className="mt-2 font-display text-2xl text-gold md:text-3xl">The Napoleon Library</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed opacity-85">
+                  Goal: to create an interactive digital library that presents Napoleon
+                  Bonaparte&apos;s life, campaigns, reforms, and legacy in an engaging, organized, and
+                  accessible web experience.
+                </p>
+              </div>
+              <a
+                href={LIVE_SITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+              >
+                View Live Website ↗
+              </a>
+            </div>
+            <dl className="mt-6 grid gap-5 sm:grid-cols-3">
               {projectInfo.map((row) => (
                 <div key={row.label} className="border-l-2 border-gold/50 pl-4">
                   <dt className="text-eyebrow text-gold/70">{row.label}</dt>
@@ -848,12 +951,35 @@ function Index() {
               </div>
             </div>
 
-            <Link
-              to="/about"
-              className="mt-8 inline-block text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 transition-colors hover:decoration-gold"
-            >
-              Read the full case study →
-            </Link>
+            <div className="mt-8">
+              <h3 className="heading-card text-gold">Technologies used</h3>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {projectTech.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-gold/40 px-3 py-1 text-xs opacity-90"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                to="/about"
+                hash="case-study"
+                className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
+              >
+                Read the full case study →
+              </Link>
+              <a
+                href="#contact"
+                className="text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 transition-colors hover:decoration-gold"
+              >
+                Get in touch
+              </a>
+            </div>
           </div>
         </div>
       </section>
