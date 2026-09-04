@@ -311,6 +311,24 @@ const exileChapters = [
   { title: "Saint Helena, 1815–1821", text: "Held at damp, windswept Longwood House in the South Atlantic, he dictated his memoirs, quarreled with his jailer Sir Hudson Lowe, and died on 5 May 1821. His remains returned to Paris in 1840, where they rest beneath the dome of Les Invalides." },
 ];
 
+const projectInfo = [
+  { label: "Project", value: "The Napoleon Library" },
+  { label: "Role", value: "Creator · Designer · Developer" },
+  { label: "Purpose", value: "Educational historical digital library" },
+];
+
+const contributions = [
+  "Researched and wrote every section — biography, works, marshals, timeline, exile, and quotes.",
+  "Designed the imperial-era look: dark ink background, gold accents, and a serif display face.",
+  "Built the site with React, TypeScript, TanStack Router, and Tailwind CSS, with reader accounts and a feedback form powered by Supabase.",
+];
+
+const lessons = [
+  "Planning the content structure first makes navigation and layout much easier.",
+  "A small palette and a consistent type hierarchy keep long text readable.",
+  "Testing on a phone early catches responsive layout problems before they pile up.",
+];
+
 function ContactSection() {
   const send = useServerFn(submitFeedback);
   const [signedIn, setSignedIn] = useState<boolean | null>(null);
@@ -380,8 +398,17 @@ function ContactSection() {
         <h2 className="mt-3 heading-section">Suggestions & bug reports</h2>
         <p className="mt-6 max-w-3xl leading-relaxed text-muted-foreground">
           Found something inaccurate, broken, or missing? Leave a note below. Messages are delivered
-          straight to the library owner's inbox, and any reply comes back to the email address on
-          your account.
+          straight to my inbox — Drew Lorenz Cortez, creator of the library — and any reply comes
+          back to the email address on your account. You can also{" "}
+          <a
+            href="https://www.facebook.com/share/1Bz7FZ1QHe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-foreground underline decoration-gold/60 underline-offset-4 transition-colors hover:decoration-gold"
+          >
+            message me on Facebook
+          </a>
+          .
         </p>
 
         {signedIn === false ? (
@@ -489,10 +516,10 @@ function Index() {
 
   return (
     <main className="min-h-screen bg-background">
-      <nav className="surface-imperial">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <span className="font-display text-xl text-gold">The Napoleon Library</span>
-          <div className="flex flex-wrap items-center gap-6 text-sm">
+      <nav aria-label="Main navigation" className="surface-imperial">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-4 lg:flex-row lg:justify-between">
+          <span className="whitespace-nowrap font-display text-xl text-gold">The Napoleon Library</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm lg:justify-end">
             <a href="#home" className="text-gold transition-opacity hover:opacity-80">Home</a>
             <a href="#life" className="text-gold/80 transition-opacity hover:text-gold">Life</a>
             <a href="#works" className="text-gold/80 transition-opacity hover:text-gold">Works</a>
@@ -511,12 +538,17 @@ function Index() {
 
       <header id="home" className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 text-center md:py-24">
-          <p className="text-eyebrow text-gold">Grade 11 — ARIES Project</p>
+          <p className="text-eyebrow text-gold">Featured project · Grade 11 ASSH/IT – ARIES</p>
           <h1 className="mt-4 font-display heading-hero">
             The Napoleon Library
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed opacity-85">
-            My featured Grade 11 ARIES project — a focused digital library of Napoleon Bonaparte's
+          <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-medium tracking-wide text-gold">
+            <span className="whitespace-nowrap">Created by Drew Lorenz Cortez</span>
+            <span className="hidden opacity-60 sm:inline" aria-hidden="true">·</span>
+            <span className="whitespace-nowrap">Grade 11 ASSH/IT – ARIES</span>
+          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-85">
+            My featured Grade 11 ARIES project — a focused digital library of Napoleon Bonaparte&apos;s
             life, campaigns, reforms, and legacy, built to explore history through technology and
             web development.
           </p>
@@ -532,6 +564,12 @@ function Index() {
               className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
             >
               See His Works
+            </a>
+            <a
+              href="#about-me"
+              className="rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
+            >
+              Meet the Creator
             </a>
           </div>
         </div>
@@ -768,6 +806,50 @@ function Index() {
               Facebook
             </a>
           </div>
+
+          <div className="mt-12 rounded-2xl border border-gold/40 bg-ink/40 p-7 md:p-8">
+            <p className="text-eyebrow text-gold">Featured project</p>
+            <dl className="mt-5 grid gap-5 sm:grid-cols-3">
+              {projectInfo.map((row) => (
+                <div key={row.label} className="border-l-2 border-gold/50 pl-4">
+                  <dt className="text-eyebrow text-gold/70">{row.label}</dt>
+                  <dd className="mt-1 font-display text-lg leading-snug text-balance">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-8 grid gap-8 md:grid-cols-2">
+              <div>
+                <h3 className="heading-card text-gold">My contribution</h3>
+                <ul className="mt-3 flex flex-col gap-2.5 text-sm leading-relaxed opacity-90">
+                  {contributions.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="heading-card text-gold">What I learned</h3>
+                <ul className="mt-3 flex flex-col gap-2.5 text-sm leading-relaxed opacity-90">
+                  {lessons.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <Link
+              to="/about"
+              className="mt-8 inline-block text-sm font-medium text-gold underline decoration-gold/50 underline-offset-4 transition-colors hover:decoration-gold"
+            >
+              Read the full case study →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -775,9 +857,9 @@ function Index() {
 
 
       <footer className="surface-imperial">
-        <div className="mx-auto max-w-5xl px-6 py-12 text-sm opacity-80">
+        <div className="mx-auto max-w-5xl px-6 py-12 pr-24 text-sm opacity-80 sm:pr-6">
           <p className="font-display text-xl text-gold">The Napoleon Library</p>
-          <p className="mt-2">Grade 11 — ARIES Project</p>
+          <p className="mt-2">Created by Drew Lorenz Cortez · Grade 11 ASSH/IT – ARIES</p>
           <p className="mt-1">© 2026 The Napoleon Library. All rights reserved.</p>
         </div>
       </footer>

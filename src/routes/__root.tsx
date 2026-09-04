@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "The Napoleon Library — Drew Lorenz Cortez" },
+      {
+        name: "description",
+        content:
+          "The Napoleon Library — an educational digital library created by Drew Lorenz Cortez, Grade 11 ASSH/IT – ARIES.",
+      },
+      { name: "author", content: "Drew Lorenz Cortez" },
+      { property: "og:title", content: "The Napoleon Library — Drew Lorenz Cortez" },
+      {
+        property: "og:description",
+        content:
+          "An educational digital library on Napoleon Bonaparte, created by Drew Lorenz Cortez.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
