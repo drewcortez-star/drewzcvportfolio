@@ -1,26 +1,29 @@
 # Napoleon's Chronicle
 
-Build me a simple portfolio about Napoleon
+A simple historical portfolio about Napoleon Bonaparte, created as a Grade 11 ASSH/IT – ARIES project.
 
-This project was built with [Lovable](https://lovable.dev).
+## AI & Development Credits
 
-**Live app**: https://drewzcvportfolio.lovable.app
+This project was developed with the assistance of the following AI tools:
 
-## Build with Lovable
+- **Lovable** — AI-assisted website development and code generation
+- **v0 by Vercel** — AI-assisted development, UI refinement, and code improvements
+- **DeepSeek** — AI-assisted research, ideas, and development support
+- **ChatGPT by OpenAI** — AI-assisted research, writing, planning, troubleshooting, and development guidance
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/0e8d318b-2920-4294-ae18-96bdf759de56).
+The project was directed, organized, reviewed, and customized by **Drew Lorenz Cortez**.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Live Website
 
-## Development
+**Live app:** https://drewzcvportfolio-eight.vercel.app/
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Developer
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+**Drew Lorenz Cortez**  
+Grade 11 ASSH/IT – ARIES
+
+---
+
+### Note on AI Assistance
+
+AI tools were used as development and research assistants throughout the project. They helped with portions of the code, content development, troubleshooting, and design refinement. The overall project direction, organization, customization, and final decisions were made by the developer.
