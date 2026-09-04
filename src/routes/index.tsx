@@ -313,14 +313,14 @@ const exileChapters = [
 
 const projectInfo = [
   { label: "Project", value: "The Napoleon Library" },
-  { label: "Role", value: "Creator · Designer · Developer" },
+  { label: "Role", value: "Creator · Director · Designer" },
   { label: "Purpose", value: "Educational historical digital library" },
 ];
 
 const contributions = [
   "Researched and wrote every section — biography, works, marshals, timeline, exile, and quotes.",
   "Designed the imperial-era look: dark ink background, gold accents, and a serif display face.",
-  "Built the site with React, TypeScript, TanStack Router, and Tailwind CSS, with reader accounts and a feedback form powered by Supabase.",
+  "Directed the development of the site in React, TypeScript, TanStack Router, and Tailwind CSS — with reader accounts and a feedback form powered by Supabase — using AI-powered web development tools to help generate and modify parts of the code.",
 ];
 
 const lessons = [
@@ -783,9 +783,14 @@ function Index() {
           </p>
           <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
             I am Drew Lorenz Cortez, a Grade 11 IT student passionate about technology, web
-            development, and digital projects. I created <em>The Napoleon Library</em> as my
-            Grade 11 ARIES project to combine my interest in building digital experiences with a
-            focused, professional look at one of history's most influential figures.
+            development, and digital projects. I created and directed <em>The Napoleon Library</em>{" "}
+            as my Grade 11 ARIES project to combine my interest in building digital experiences with
+            a focused, professional look at one of history&apos;s most influential figures.
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed opacity-90">
+            The website was developed with the assistance of AI-powered web development tools, which
+            helped generate and modify parts of the code. I directed the project&apos;s design,
+            content, research, structure, and overall development.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link
