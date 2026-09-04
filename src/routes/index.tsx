@@ -516,8 +516,9 @@ function Index() {
             The Napoleon Library
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed opacity-85">
-            A focused collection of Napoleon Bonaparte's life, campaigns, reforms, and legacy —
-            built like a digital reference shelf for one of history's most influential figures.
+            My featured Grade 11 ARIES project — a focused digital library of Napoleon Bonaparte's
+            life, campaigns, reforms, and legacy, built to explore history through technology and
+            web development.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
@@ -735,15 +736,23 @@ function Index() {
         </div>
       </section>
 
-      <section id="about" className="surface-imperial">
+      <section id="about-me" className="surface-imperial">
         <div className="mx-auto max-w-5xl px-6 py-16 md:py-24">
-          <p className="text-eyebrow text-gold">About</p>
-          <h2 className="mt-3 heading-section">About this library</h2>
+          <p className="text-eyebrow text-gold">About Me</p>
+          <h2 className="mt-3 heading-section">Drew Lorenz Cortez</h2>
+          <p className="mt-2 text-sm font-medium text-gold/80">Grade 11 IT Student</p>
           <p className="mt-6 max-w-3xl leading-relaxed opacity-90">
-            This website was created as a Grade 11 ARIES project. It is designed as a single-subject
-            digital library dedicated entirely to Napoleon Bonaparte — his origins, his wars, his
-            laws, and the world he left behind.
+            I created <em>The Napoleon Library</em> as my Grade 11 ARIES project. I am interested
+            in technology, web development, and digital projects, and I built this site to bring
+            together those interests with a focused, professional look at one of history's most
+            influential figures.
           </p>
+          <Link
+            to="/about"
+            className="mt-6 inline-block rounded-full border border-gold/50 px-6 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-ink"
+          >
+            More about the creator →
+          </Link>
         </div>
       </section>
 

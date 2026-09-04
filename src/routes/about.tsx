@@ -4,17 +4,17 @@ import drewPhoto from "@/assets/drew-cortez.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About the Developer — The Napoleon Library" },
+      { title: "About Me — The Napoleon Library" },
       {
         name: "description",
         content:
-          "Meet Drew Lorenz S. Cortez, the Grade 11 ASSH/IT - ARIES student who designed and built The Napoleon Library.",
+          "Meet Drew Lorenz Cortez, the Grade 11 IT student who designed and built The Napoleon Library.",
       },
-      { property: "og:title", content: "About the Developer — The Napoleon Library" },
+      { property: "og:title", content: "About Me — The Napoleon Library" },
       {
         property: "og:description",
         content:
-          "The story behind The Napoleon Library, created by Drew Lorenz S. Cortez of Grade 11 ASSH/IT - ARIES.",
+          "The story behind The Napoleon Library, created by Drew Lorenz Cortez as a Grade 11 ARIES project.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -40,7 +40,7 @@ function AboutPage() {
 
       <div className="mx-auto w-full max-w-3xl flex-1 px-6 py-14">
         <p className="text-eyebrow opacity-70">Behind the Library</p>
-        <h1 className="mt-3 font-display heading-section">About the Developer</h1>
+        <h1 className="mt-3 font-display heading-section">About Me</h1>
 
         <div className="mt-10 grid gap-8 rounded-2xl border border-border bg-card p-8 shadow-frame sm:grid-cols-[220px_1fr]">
           <figure>
@@ -52,21 +52,21 @@ function AboutPage() {
               className="w-full rounded-xl border border-gold/40 object-cover shadow-frame"
             />
             <figcaption className="mt-3 text-center text-xs opacity-70">
-              Drew Lorenz S. Cortez · Grade 11 ASSH/IT - ARIES
+              Drew Lorenz Cortez · Grade 11 IT Student
             </figcaption>
           </figure>
 
           <div className="space-y-4 text-sm leading-relaxed opacity-90">
             <p>
-              <span className="font-display text-lg text-gold">Drew Lorenz S. Cortez</span> is a
-              Grade 11 student of the <strong>ASSH/IT - ARIES</strong> section and the creator,
-              designer, and developer of <em>The Napoleon Library</em>.
+              <span className="font-display text-lg text-gold">Drew Lorenz Cortez</span> is a
+              Grade 11 IT student and the creator, designer, and developer of{" "}
+              <em>The Napoleon Library</em>.
             </p>
             <p>
-              This website began as a Grade 11 history project and grew into a full digital
-              library dedicated to the life, campaigns, and legacy of Napoleon Bonaparte. Every
-              section — from the biography and timeline to the marshals and the exclusive
-              Greatest Wars room — was written, fact-checked, and hand-built by Drew.
+              This website was created as my Grade 11 ARIES project and developed into a full
+              digital library dedicated to the life, campaigns, and legacy of Napoleon Bonaparte.
+              Every section — from the biography and timeline to the marshals and the exclusive
+              Greatest Wars room — was written, fact-checked, and hand-built by me.
             </p>
             <p>
               The project combines a passion for history with web development skills: responsive
@@ -82,8 +82,8 @@ function AboutPage() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {[
-            { label: "Developer", value: "Drew Lorenz S. Cortez" },
-            { label: "Grade & Section", value: "11 ASSH/IT - ARIES" },
+            { label: "Developer", value: "Drew Lorenz Cortez" },
+            { label: "Grade & Section", value: "Grade 11 IT Student — ARIES" },
             { label: "Project", value: "The Napoleon Library" },
           ].map((item) => (
             <div
