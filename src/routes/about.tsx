@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import drewPhoto from "@/assets/drew-cortez.jpg.asset.json";
+import drewPhoto from "@/assets/drew-cortez.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -34,7 +34,7 @@ const skills = [
   },
   {
     title: "Research & writing",
-    items: ["Historical research", "Fact-checking", "Source citation", "Content writing"],
+    items: ["Historical research", "Fact-checking", "Content writing"],
   },
   {
     title: "Tools & workflow",
@@ -106,7 +106,7 @@ const caseStudy = [
   {
     title: "Research & content",
     text:
-      "Collected key dates, campaigns, marshals, and quotes from reputable sources, then rewrote everything in my own words and fact-checked it before it went live. Sources are credited in the bibliography.",
+      "Collected key dates, campaigns, marshals, and quotes from reputable sources, then rewrote everything in my own words and fact-checked it before it went live.",
   },
   {
     title: "Design decisions",
@@ -189,10 +189,10 @@ function AboutPage() {
         <div className="mt-10 grid gap-8 rounded-md border border-border bg-card p-7 shadow-frame sm:grid-cols-[220px_1fr] md:p-8">
           <figure className="mx-auto w-full max-w-[220px] sm:mx-0">
             <img
-              src={drewPhoto.url}
-              alt="Portrait of Drew Lorenz S. Cortez, developer of The Napoleon Library"
+              src={drewPhoto}
+              alt="Portrait of Drew Lorenz Cortez, creator of The Napoleon Library"
               width={220}
-              height={293}
+              height={425}
               className="w-full rounded-md border border-gold/40 object-cover shadow-frame"
             />
             <figcaption className="mt-3 text-center text-xs text-muted-foreground">
@@ -464,7 +464,7 @@ function AboutPage() {
 
       <footer className="surface-imperial mt-auto">
         <div className="mx-auto max-w-5xl px-6 py-8 text-center text-sm opacity-80">
-          The Napoleon Library — built and maintained by Drew Lorenz S. Cortez.
+          The Napoleon Library — built and maintained by Drew Lorenz Cortez · Grade 11 ASSH/IT – ARIES.
         </div>
       </footer>
     </main>
