@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GreatWarsRouteImport } from './routes/great-wars'
@@ -17,6 +18,11 @@ import { Route as GreatWarsRouteImport } from './routes/great-wars'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountRoute = AccountRouteImport.update({
@@ -37,12 +43,14 @@ const GreatWarsRoute = GreatWarsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/auth': typeof AuthRoute
   '/great-wars': typeof GreatWarsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/auth': typeof AuthRoute
   '/great-wars': typeof GreatWarsRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/account': typeof AccountRoute
   '/auth': typeof AuthRoute
   '/great-wars': typeof GreatWarsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/account' | '/auth' | '/great-wars'
+  fullPaths: '/' | '/about' | '/account' | '/auth' | '/great-wars'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/account' | '/auth' | '/great-wars'
-  id: '__root__' | '/' | '/account' | '/auth' | '/great-wars'
+  to: '/' | '/about' | '/account' | '/auth' | '/great-wars'
+  id: '__root__' | '/' | '/about' | '/account' | '/auth' | '/great-wars'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AccountRoute: typeof AccountRoute
   AuthRoute: typeof AuthRoute
   GreatWarsRoute: typeof GreatWarsRoute
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account': {
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AccountRoute: AccountRoute,
   AuthRoute: AuthRoute,
   GreatWarsRoute: GreatWarsRoute,
