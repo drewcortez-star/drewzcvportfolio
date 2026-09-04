@@ -44,7 +44,7 @@ const skills = [
 
 const projectInfo = [
   { label: "Project", value: "The Napoleon Library" },
-  { label: "My role", value: "Creator · Designer · Developer" },
+  { label: "My role", value: "Creator · Director · Designer" },
   { label: "Purpose", value: "Educational historical digital library" },
   { label: "Type", value: "Grade 11 ARIES project" },
 ];
@@ -52,8 +52,8 @@ const projectInfo = [
 const contributions = [
   "Researched, wrote, and fact-checked every section — biography, campaigns, marshals, timeline, exile, and quotes.",
   "Designed the imperial-era look: dark ink background, gold accents, and a serif display face.",
-  "Built the multi-page site with React, TypeScript, TanStack Router, and Tailwind CSS.",
-  "Added reader accounts and the members-only Greatest Wars room using Supabase Auth.",
+  "Directed the development of the multi-page site in React, TypeScript, TanStack Router, and Tailwind CSS, using AI-powered web development tools to help generate and modify parts of the code.",
+  "Planned and directed the reader accounts and the members-only Greatest Wars room, implemented with Supabase Auth.",
   "Set up the feedback form and deployed the site on Vercel.",
 ];
 
@@ -87,7 +87,7 @@ const journey = [
     when: "ARIES project",
     title: "Building The Napoleon Library",
     text:
-      "Combined both interests into one website: researched and wrote every section, designed the imperial-era look, and built it with React, TypeScript, and Tailwind.",
+      "Combined both interests into one website: researched and wrote every section, designed the imperial-era look, and directed its development in React, TypeScript, and Tailwind with the assistance of AI-powered web development tools.",
   },
   {
     when: "Next",
@@ -116,7 +116,7 @@ const caseStudy = [
   {
     title: "Development",
     text:
-      "Built with React and TypeScript using file-based routing, styled with Tailwind CSS, and added reader accounts and a feedback form powered by Supabase so the site works as a real product.",
+      "Developed in React and TypeScript with file-based routing and Tailwind CSS, with the assistance of AI-powered web development tools that helped generate and modify parts of the code. I directed the structure, features, and revisions, and added reader accounts and a feedback form powered by Supabase so the site works as a real product.",
   },
   {
     title: "Challenges",
@@ -139,6 +139,7 @@ const stack = [
   "Supabase Auth",
   "Vercel",
   "Git & GitHub",
+  "AI-powered web development tools",
 ];
 
 const interests = [
@@ -203,14 +204,19 @@ function AboutPage() {
           <div className="space-y-4 text-sm leading-relaxed opacity-90">
             <p>
               <span className="font-display text-lg text-gold">Drew Lorenz Cortez</span> is a
-              Grade 11 ASSH/IT student in section ARIES and the creator, designer, and developer
+              Grade 11 ASSH/IT student in section ARIES and the creator, director, and designer
               of <em>The Napoleon Library</em>.
             </p>
             <p>
-              This website was created as my Grade 11 ARIES project and developed into a full
-              digital library dedicated to the life, campaigns, and legacy of Napoleon Bonaparte.
-              Every section — from the biography and timeline to the marshals and the exclusive
-              Greatest Wars room — was written, fact-checked, and hand-built by me.
+              I created and directed this website as my Grade 11 ARIES project, developing it into
+              a full digital library dedicated to the life, campaigns, and legacy of Napoleon
+              Bonaparte. Every section — from the biography and timeline to the marshals and the
+              exclusive Greatest Wars room — was researched, written, and fact-checked by me.
+            </p>
+            <p>
+              The website was developed with the assistance of AI-powered web development tools,
+              which helped generate and modify parts of the code. I directed the project&apos;s
+              design, content, research, structure, and overall development.
             </p>
             <p>
               I&apos;m an aspiring web developer who cares about two things equally: getting the
@@ -277,7 +283,8 @@ function AboutPage() {
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             An educational digital library on the life, campaigns, and legacy of Napoleon
-            Bonaparte — researched, designed, and built by me.
+            Bonaparte — researched, designed, and directed by me, and developed with the
+            assistance of AI-powered web development tools.
           </p>
 
           <div className="mt-8 rounded-md border border-gold/40 bg-card p-7 shadow-frame">
@@ -339,8 +346,8 @@ function AboutPage() {
             My Skills
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Every skill listed here was used to build The Napoleon Library — from researching and
-            writing the content to designing the layout and coding the site.
+            Every skill listed here was used to create The Napoleon Library — from researching and
+            writing the content to designing the layout and directing the development of the site.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {skills.map((group) => (
@@ -387,11 +394,11 @@ function AboutPage() {
         <section aria-labelledby="case-heading" className="mt-20">
           <p className="text-eyebrow text-gold">Case study</p>
           <h2 id="case-heading" className="mt-3 heading-section">
-            How I built The Napoleon Library
+            How I created The Napoleon Library
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            A look behind the gilded pages: the goal, the process, the tools, and what I&apos;d do
-            differently next time.
+            A look behind the gilded pages: the goal, the process, the tools (including AI
+            assistance), and what I&apos;d do differently next time.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -464,7 +471,7 @@ function AboutPage() {
 
       <footer className="surface-imperial mt-auto">
         <div className="mx-auto max-w-5xl px-6 py-8 text-center text-sm opacity-80">
-          The Napoleon Library — built and maintained by Drew Lorenz Cortez · Grade 11 ASSH/IT – ARIES.
+          The Napoleon Library — created and maintained by Drew Lorenz Cortez · Grade 11 ASSH/IT – ARIES.
         </div>
       </footer>
     </main>
